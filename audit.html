@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Free Audit — Dean Kunselman</title>
+  <meta name="description" content="Free 10-minute audit to estimate scope and pricing." />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+<header class="container header">
+  <div class="brand">
+    <div class="avatar" aria-hidden="true">DK</div>
+    <div>
+      <h1>Free 10-Minute Audit</h1>
+      <p class="sub">Fill this out. Copy the message. Send it by text or email.</p>
+    </div>
+  </div>
+  <nav class="topnav">
+    <a href="./index.html">Home</a>
+    <a href="./services.html">Pricing</a>
+    <a href="./contact.html">Contact</a>
+  </nav>
+</header>
+
+<main class="container section">
+  <div class="grid2">
+    <form class="card" id="auditForm">
+      <h2>Project details</h2>
+
+      <label>Business / Project name
+        <input name="projectName" placeholder="Example: Inventory Catalog" required />
+      </label>
+
+      <label>What are you trying to achieve?
+        <textarea name="goal" rows="3" placeholder="Example: catalog items with photos, searchable, export to CSV"></textarea>
+      </label>
+
+      <label>Rough size (items/records)
+        <select name="size">
+          <option value="Under 200">Under 200</option>
+          <option value="200–1,000">200–1,000</option>
+          <option value="1,000–5,000">1,000–5,000</option>
+          <option value="5,000+">5,000+</option>
+        </select>
+      </label>
+
+      <label>Where will it be used?
+        <select name="environment">
+          <option value="Phone">Phone</option>
+          <option value="Laptop/PC">Laptop/PC</option>
+          <option value="Both">Both</option>
+          <option value="Multiple staff devices">Multiple staff devices</option>
+        </select>
+      </label>
+
+      <label>Needed features
+        <div class="checks">
+          <label><input type="checkbox" name="features" value="Photo attach" /> Photo attach</label>
+          <label><input type="checkbox" name="features" value="Search & filters" /> Search & filters</label>
+          <label><input type="checkbox" name="features" value="CSV export" /> CSV export</label>
+          <label><input type="checkbox" name="features" value="Labels/barcodes" /> Labels/barcodes</label>
+          <label><input type="checkbox" name="features" value="Dashboard/reporting" /> Dashboard/reporting</label>
+          <label><input type="checkbox" name="features" value="Offline-first" /> Offline-first</label>
+        </div>
+      </label>
+
+      <label>Deadline
+        <input name="deadline" placeholder="Example: within 2 weeks" />
+      </label>
+
+      <label>Budget range
+        <select name="budget">
+          <option value="Not sure">Not sure</option>
+          <option value="$250–$700">$250–$700</option>
+          <option value="$900–$2,500">$900–$2,500</option>
+          <option value="$3,000+">$3,000+</option>
+        </select>
+      </label>
+
+      <label>Your name
+        <input name="name" placeholder="Name" />
+      </label>
+
+      <label>Your best contact (email or phone)
+        <input name="contact" placeholder="you@example.com or (###) ###-####" required />
+      </label>
+
+      <div class="ctaRow">
+        <button class="btn" type="button" id="copyBtn">Copy Message</button>
+        <a class="btn ghost" id="smsBtn" href="#">Text it</a>
+        <a class="btn ghost" id="emailBtn" href="#">Email it</a>
+      </div>
+
+      <p class="fineprint">No backend needed. Works on GitHub Pages.</p>
+    </form>
+
+    <div class="card">
+      <h2>Generated message</h2>
+      <p class="muted">This updates as you type.</p>
+      <pre class="output" id="auditOutput"></pre>
+
+      <div class="ctaRow">
+        <a class="btn" href="tel:+17167776345">Call Dean</a>
+        <a class="btn ghost" href="./services.html">Pricing</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="container footer">
+  <p class="muted">© <span id="year"></span> Dean Kunselman</p>
+</footer>
+
+<script src="./assets/js/main.js"></script>
+</body>
+</html>
