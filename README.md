@@ -6,7 +6,7 @@ This repo is a portfolio designed to convert visitors into paid work:
 ## Pages
 - Home: `index.html`
 - Pricing: `services.html`
-- Free Audit (lead capture): `audit.html`
+- Free Audit (lead capture): `audit.html` 
 - Contact: `contact.html`
 - Skill page: `skills/automation.html`
 
