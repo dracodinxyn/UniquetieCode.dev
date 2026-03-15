@@ -1,71 +1,89 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dean Kunselman — Software Solutions & Portfolio</title>
-  <meta name="description" content="Dean Kunselman specializes in practical software solutions, automation, dashboards, and portfolio projects." />
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dean Kunselman | DevOps & Software Engineer</title>
+  <meta name="description" content="Dean Kunselman – Building offline-first inventory tools, automation pipelines, dashboards, and fast exports for collectors and businesses."/>
+  
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
   <style>
-    body { @apply bg-gray-50 font-sans; }
-    .btn { @apply bg-black text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-gray-800 transition; }
-    .btn-ghost { @apply border border-black text-black px-6 py-3 rounded-lg font-semibold shadow hover:bg-black hover:text-white transition; }
-    .nav-link { @apply text-gray-900 font-semibold hover:text-gray-600 mx-4; }
-    .feature-card { @apply bg-white rounded-xl shadow-lg p-6 transition transform hover:-translate-y-1 hover:shadow-2xl; }
+    :root {
+      --brass: #c9a96e; --dark-brass: #a67c52; --aged-parchment: #f0e0c0;
+      --charcoal: #1f1a16; --deep-brown: #2c2118;
+    }
+    body { font-family: 'Inter', system-ui, sans-serif; background-color: var(--charcoal); color: var(--aged-parchment); }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
+    .section-bg {
+      background: linear-gradient(rgba(31,26,22,0.90), rgba(44,33,24,0.85)),
+                  url('https://images.unsplash.com/photo-1617791160505-6f00504e3519?auto=format&fit=crop&q=80') center/cover no-repeat fixed;
+      background-blend-mode: multiply;
+    }
+    .card { @apply p-8 rounded-xl border border-[var(--dark-brass)/0.6] bg-[var(--deep-brown)/0.75] backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-400; }
+    .btn-back { @apply inline-block px-8 py-4 rounded-lg font-semibold text-lg border-2 border-[var(--brass)] text-[var(--brass)] hover:bg-[var(--brass)] hover:text-[var(--charcoal)] shadow-[0_0_15px_rgba(201,169,110,0.4)]; }
   </style>
 </head>
-<body>
+<body class="min-h-screen section-bg bg-fixed">
 
-  <!-- Navigation -->
-  <nav class="bg-white shadow sticky top-0 z-50 p-4 flex justify-center">
-    <a href="/" class="nav-link">Home</a>
-    <a href="/andrew" class="nav-link">Andrew</a>
-    <a href="/listings" class="nav-link">Listings</a>
-  </nav>
-
-  <!-- Intro -->
-  <main class="max-w-6xl mx-auto py-16 px-5 text-center">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">Dean Kunselman — Software That Saves Time & Recovers Value</h1>
-    <p class="text-lg md:text-xl text-gray-700 mb-10">
-      I build practical software solutions that automate repetitive tasks, organize data, and provide clear insights to help businesses and individuals operate efficiently.
-    </p>
-
-    <!-- Call-to-Actions -->
-    <div class="flex flex-col md:flex-row justify-center gap-6 mb-12">
-      <a href="./audit.html" class="btn">Free 10-Minute Audit</a>
-      <a href="./contact.html" class="btn-ghost">Contact Me</a>
+  <section class="max-w-5xl mx-auto py-16 px-6 md:px-10">
+    <div class="text-center mb-16">
+      <h1 class="text-5xl md:text-6xl font-bold text-[var(--brass)] mb-4">Dean Kunselman</h1>
+      <p class="text-2xl md:text-3xl opacity-90">DevOps & Software Engineering Lead</p>
+      <p class="mt-6 text-xl max-w-3xl mx-auto opacity-85">
+        Architect of reliable, offline-first systems that power inventory management, automation, and data visibility for antique professionals and small businesses.
+      </p>
     </div>
 
-    <!-- Skills / Expertise -->
-    <section class="grid md:grid-cols-3 gap-8 text-left mt-10">
-      <div class="feature-card">
-        <h3 class="text-xl font-semibold mb-2">Automation & Scripts</h3>
-        <p class="text-gray-600">Custom tools to reduce repetitive work, clean data, and streamline workflows.</p>
-      </div>
-      <div class="feature-card">
-        <h3 class="text-xl font-semibold mb-2">Inventory Systems</h3>
-        <p class="text-gray-600">Photo-first catalogs, categories, search, and CSV export-ready for businesses.</p>
-      </div>
-      <div class="feature-card">
-        <h3 class="text-xl font-semibold mb-2">Dashboards & Reporting</h3>
-        <p class="text-gray-600">Operational visibility with KPIs, weekly summaries, and easy-to-read analytics.</p>
-      </div>
-    </section>
+    <!-- Back + Contact -->
+    <div class="flex justify-between items-center mb-12 flex-wrap gap-6">
+      <a href="/" class="btn-back">← Back to Home</a>
+      <p class="text-lg opacity-85">
+        Contact: <a href="tel:+17167776345" class="underline hover:text-[var(--brass)]">716-777-6345</a> • 
+        <a href="mailto:Dean.Kunselman@gmail.com" class="underline hover:text-[var(--brass)]">Dean.Kunselman@gmail.com</a>
+      </p>
+    </div>
 
-    <!-- Optional Mini Contact -->
-    <p class="mt-12 text-gray-600">
-      Call: <a href="tel:+17167776345" class="underline">716-777-6345</a> • Email: <a href="mailto:Dean.Kunselman@gmail.com" class="underline">Dean.Kunselman@gmail.com</a>
-    </p>
-  </main>
+    <!-- Skills -->
+    <div class="card mb-12">
+      <h2 class="text-3xl text-[var(--brass)] mb-6">Core Skills & Technologies</h2>
+      <div class="grid md:grid-cols-2 gap-6 text-lg">
+        <ul class="space-y-3">
+          <li>DevOps & CI/CD pipelines</li>
+          <li>Offline-first web applications</li>
+          <li>JavaScript / TypeScript</li>
+          <li>HTML + CSS + Tailwind</li>
+          <li>GitHub Pages / Static hosting</li>
+        </ul>
+        <ul class="space-y-3">
+          <li>Automation scripting & workflows</li>
+          <li>Data export (CSV/JSON)</li>
+          <li>Dashboard & KPI visualization</li>
+          <li>Cloudflare Workers / Edge functions</li>
+          <li>Performance optimization</li>
+        </ul>
+      </div>
+    </div>
 
-  <!-- Footer -->
-  <footer class="py-10 text-center text-gray-600">
-    <p>© <span id="year"></span> Uniquitys</p>
-  </footer>
+    <!-- Portfolio / Projects -->
+    <div class="card mb-12">
+      <h2 class="text-3xl text-[var(--brass)] mb-6">Selected Projects & Achievements</h2>
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-2xl mb-2">Kunselman & Andrew Inventory System</h3>
+          <p class="opacity-90">Built the full software stack: dynamic listings, offline support, one-click exports, admin backend integration. Reduced manual entry errors by >80% for partner operations.</p>
+        </div>
+        <div>
+          <h3 class="text-2xl mb-2">Automation Pipelines</h3>
+          <p class="opacity-90">Transformed multi-step listing/valuation tasks into single-button operations using JS automation and structured data flows.</p>
+        </div>
+        <!-- Add more as needed -->
+      </div>
+    </div>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  </section>
 </body>
 </html>
