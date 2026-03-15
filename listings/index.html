@@ -1,36 +1,191 @@
-<h1>Andrew's Listings</h1>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Curated Listings • Kunselman & Andrew</title>
+  <meta name="description" content="Expertly curated antiques, collectibles, and rare finds — authenticated, photographed, and ready for discerning collectors."/>
 
-<div id="items"></div>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<script>
+  <style>
+    :root {
+      --brass: #c9a96e;
+      --dark-brass: #a67c52;
+      --aged-parchment: #f0e0c0;
+      --charcoal: #1f1a16;
+      --deep-brown: #2c2118;
+    }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--charcoal);
+      color: var(--aged-parchment);
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+    .hero-bg {
+      background: linear-gradient(rgba(31,26,22,0.90), rgba(44,33,24,0.85)),
+                  url('https://thumbs.dreamstime.com/b/steampunk-world-map-globe-gears-light-bulbs-vintage-style-featuring-detailed-surrounded-illuminated-creating-399081511.jpg') center/cover no-repeat fixed;
+      background-blend-mode: multiply;
+    }
+    .card {
+      @apply rounded-xl overflow-hidden border border-[var(--dark-brass)/0.6] bg-[var(--deep-brown)/0.8] backdrop-blur-sm shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-[1.02];
+    }
+    .btn-detail {
+      @apply px-6 py-3 rounded-lg font-medium border-2 border-[var(--brass)] text-[var(--brass)] hover:bg-[var(--brass)] hover:text-[var(--charcoal)] shadow-[0_0_15px_rgba(201,169,110,0.4)];
+    }
+    .modal {
+      @apply fixed inset-0 bg-black/80 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-300;
+    }
+    .modal.open {
+      @apply opacity-100 pointer-events-auto;
+    }
+    .modal-content {
+      @apply max-w-4xl w-full max-h-[90vh] overflow-y-auto bg-[var(--deep-brown)] border-2 border-[var(--brass)] rounded-xl shadow-2xl p-8 relative;
+    }
+    .gallery-img {
+      @apply h-64 object-cover rounded-lg border border-[var(--dark-brass)] shadow-md cursor-pointer hover:opacity-90 transition;
+    }
+  </style>
+</head>
+<body class="min-h-screen hero-bg bg-fixed">
 
-async function loadListings(){
+  <section class="max-w-6xl mx-auto py-16 px-6 md:px-10">
 
- const response = await fetch("/data/listings.json")
- const items = await response.json()
+    <div class="text-center mb-16">
+      <h1 class="text-5xl md:text-6xl font-bold text-[var(--brass)] tracking-tight drop-shadow-lg">Curated Listings</h1>
+      <p class="text-xl md:text-2xl opacity-90 mt-4">Timeless antiques and collectibles — authenticated, photographed, and selected with care</p>
+    </div>
 
- const container = document.getElementById("items")
+    <div id="listingsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Listings will be injected here -->
+    </div>
 
- container.innerHTML = ""
+    <div id="loading" class="text-center text-xl opacity-80 py-20 hidden">
+      Loading curated items...
+    </div>
 
- items.forEach(item => {
+    <div id="error" class="text-center text-xl text-red-400 py-20 hidden">
+      Unable to load listings. Please try again later.
+    </div>
 
-   const card = `
-   <div style="border:1px solid #ddd;padding:20px;margin:20px;width:260px">
-     <img src="${item.image}" width="220">
-     <h2>${item.title}</h2>
-     <p><b>${item.model}</b></p>
-     <p>Age: ${item.age}</p>
-     <p>${item.description}</p>
-     <a href="${item.ebay}" target="_blank">View on eBay</a>
-   </div>
-   `
+    <div id="empty" class="text-center text-xl opacity-80 py-20 hidden">
+      No listings available at the moment. Check back soon!
+    </div>
 
-   container.innerHTML += card
- })
+  </section>
 
-}
+  <!-- Modal for details -->
+  <div id="detailModal" class="modal">
+    <div class="modal-content relative">
+      <button id="closeModal" class="absolute top-4 right-6 text-3xl text-[var(--brass)] hover:text-white">&times;</button>
+      <div id="modalContent" class="space-y-6"></div>
+    </div>
+  </div>
 
-loadListings()
+  <script>
+    const grid = document.getElementById('listingsGrid');
+    const loading = document.getElementById('loading');
+    const errorDiv = document.getElementById('error');
+    const emptyDiv = document.getElementById('empty');
+    const modal = document.getElementById('detailModal');
+    const closeModal = document.getElementById('closeModal');
+    const modalContent = document.getElementById('modalContent');
 
-</script>
+    // Fetch listings
+    async function loadListings() {
+      loading.classList.remove('hidden');
+      grid.innerHTML = '';
+
+      try {
+        const response = await fetch('../data/listings.json'); // Adjust path if needed (e.g. '/data/listings.json')
+        if (!response.ok) throw new Error('Failed to fetch');
+
+        const listings = await response.json();
+
+        if (!Array.isArray(listings) || listings.length === 0) {
+          emptyDiv.classList.remove('hidden');
+          return;
+        }
+
+        listings.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'card cursor-pointer';
+          card.innerHTML = `
+            <img src="${item.featuredImage || 'https://via.placeholder.com/400x300?text=No+Image'}" 
+                 alt="${item.title}" 
+                 class="w-full h-64 object-cover">
+            <div class="p-6">
+              <h3 class="text-2xl text-[var(--brass)] mb-2">${item.title}</h3>
+              <p class="text-xl font-bold mb-3">\[ {item.price.toLocaleString()}</p>
+              <div class="text-sm opacity-80 mb-4 space-y-1">
+                <p><span class="font-medium">Category:</span> ${item.category}</p>
+                <p><span class="font-medium">Era:</span> ${item.era || 'Unknown'}</p>
+                <p><span class="font-medium">Condition:</span> ${item.condition}</p>
+              </div>
+              <p class="text-sm opacity-90 line-clamp-3 mb-4">${item.description}</p>
+              <button class="btn-detail w-full">View Details</button>
+            </div>
+          `;
+
+          card.querySelector('button').addEventListener('click', () => showDetail(item));
+          grid.appendChild(card);
+        });
+      } catch (err) {
+        console.error(err);
+        errorDiv.classList.remove('hidden');
+      } finally {
+        loading.classList.add('hidden');
+      }
+    }
+
+    // Show detail modal
+    function showDetail(item) {
+      modalContent.innerHTML = `
+        <h2 class="text-4xl text-[var(--brass)] mb-6">${item.title}</h2>
+        <p class="text-3xl font-bold mb-6"> \]{item.price.toLocaleString()} USD</p>
+        
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+          <div>
+            <img src="${item.featuredImage || 'https://via.placeholder.com/600x400?text=No+Image'}" 
+                 alt="${item.title}" class="w-full h-auto rounded-lg border border-[var(--dark-brass)] shadow-xl">
+          </div>
+          <div class="space-y-4">
+            <p><strong>Category:</strong> ${item.category}</p>
+            <p><strong>Era:</strong> ${item.era || 'Unknown'}</p>
+            <p><strong>Condition:</strong> ${item.condition}</p>
+            <p><strong>Listed:</strong> ${item.dateListed || 'N/A'}</p>
+          </div>
+        </div>
+
+        <p class="text-lg opacity-90 mb-8">${item.description}</p>
+
+        ${item.images?.length > 1 ? `
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+            ${item.images.slice(1).map(img => `
+              <img src="${img}" alt="Gallery image" class="gallery-img">
+            `).join('')}
+          </div>
+        ` : ''}
+      `;
+
+      modal.classList.add('open');
+    }
+
+    // Close modal
+    closeModal.addEventListener('click', () => modal.classList.remove('open'));
+    modal.addEventListener('click', e => {
+      if (e.target === modal) modal.classList.remove('open');
+    });
+
+    // Load on page ready
+    loadListings();
+  </script>
+
+</body>
+</html>
