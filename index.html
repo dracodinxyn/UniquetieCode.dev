@@ -1,44 +1,101 @@
-<!-- Intro & Key Highlights -->
-<section class="max-w-6xl mx-auto py-16 px-5 text-center">
-  <!-- Headline -->
-  <h1 class="text-4xl md:text-5xl font-bold mb-4">Fast, Practical Software & Curated Listings</h1>
-  <p class="text-lg md:text-xl text-gray-700 mb-8">
-    We help businesses and collectors save time, reduce errors, and recover value with professional software solutions and well-curated listings.
-  </p>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dean Kunselman | Software Solutions & Curated Antique Listings</title>
+  <meta name="description" content="Professional software for inventory, automation, and dashboards — paired with expertly curated antique & collectibles listings. Fast, offline-friendly, precise."/>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Steampunk-friendly serif + modern sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --brass: #c9a96e;
+      --dark-brass: #a67c52;
+      --aged-parchment: #f0e0c0;
+      --charcoal: #1f1a16;
+      --deep-brown: #2c2118;
+      --burgundy: #5c2d2d;
+    }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--charcoal);
+      color: var(--aged-parchment);
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+    .btn {
+      @apply inline-block px-8 py-4 rounded-md font-semibold tracking-wide transition-all duration-300 border-2 border-[var(--brass)] text-[var(--brass)] hover:bg-[var(--brass)] hover:text-[var(--charcoal)] shadow-[0_0_15px_rgba(201,169,110,0.4)];
+    }
+    .btn-ghost {
+      @apply inline-block px-8 py-4 rounded-md font-semibold tracking-wide transition-all duration-300 border-2 border-[var(--dark-brass)] text-[var(--dark-brass)] hover:bg-[var(--dark-brass)] hover:text-[var(--aged-parchment)] shadow-[0_0_10px_rgba(166,124,82,0.3)];
+    }
+    .feature-card {
+      @apply p-8 rounded-lg border border-[var(--dark-brass)] bg-[var(--deep-brown)] shadow-[inset_0_0_20px_rgba(0,0,0,0.6),0_4px_15px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(201,169,110,0.25)] transition-shadow duration-500;
+    }
+    .badge {
+      @apply px-5 py-2 rounded-full text-sm font-medium bg-[rgba(201,169,110,0.12)] text-[var(--brass)] border border-[rgba(201,169,110,0.3)] backdrop-blur-sm;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-[var(--charcoal)] to-[var(--deep-brown)]">
 
-  <!-- CTA Buttons -->
-  <div class="flex flex-col md:flex-row justify-center gap-6 mb-12">
-    <a href="/dean" class="btn">Dean’s Expertise</a>
-    <a href="/andrew" class="btn">Andrew’s Portfolio</a>
-    <a href="/listings" class="btn-ghost">View Listings</a>
-  </div>
+  <!-- Hero / Intro Section -->
+  <section class="max-w-6xl mx-auto py-20 px-6 md:px-10 text-center">
+    <!-- Headline with steampunk flourish -->
+    <h1 class="text-5xl md:text-7xl font-bold mb-6 text-[var(--brass)] tracking-tight drop-shadow-lg">
+      Precision Engineering Meets Timeless Craftsmanship
+    </h1>
+    
+    <p class="text-xl md:text-2xl text-[var(--aged-parchment)] opacity-90 mb-10 max-w-4xl mx-auto leading-relaxed">
+      We deliver fast, reliable software solutions for DevOps teams and antique professionals — reducing errors, automating workflows, and unlocking hidden value in collections through curated, photo-first listings.
+    </p>
 
-  <!-- Quick Highlights / Badges -->
-  <div class="flex flex-wrap justify-center gap-4 mb-12">
-    <span class="bg-gray-200 px-4 py-2 rounded-full text-gray-800 font-semibold">Offline-friendly</span>
-    <span class="bg-gray-200 px-4 py-2 rounded-full text-gray-800 font-semibold">GitHub Pages compatible</span>
-    <span class="bg-gray-200 px-4 py-2 rounded-full text-gray-800 font-semibold">Export to CSV</span>
-    <span class="bg-gray-200 px-4 py-2 rounded-full text-gray-800 font-semibold">Fast turnaround</span>
-  </div>
-
-  <!-- Quick Packages -->
-  <div class="grid md:grid-cols-3 gap-6 text-left">
-    <div class="feature-card">
-      <h3 class="text-xl font-semibold mb-2">Inventory Catalog</h3>
-      <p class="text-gray-600">Photo-first catalog, searchable, export-ready.</p>
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row justify-center gap-6 mb-14">
+      <a href="/dean" class="btn">Dean’s DevOps & Software Expertise</a>
+      <a href="/andrew" class="btn">Andrew’s Curated Portfolio</a>
+      <a href="/listings" class="btn-ghost">Explore Listings</a>
     </div>
-    <div class="feature-card">
-      <h3 class="text-xl font-semibold mb-2">Automation</h3>
-      <p class="text-gray-600">Turn multi-step tasks into one button, reduce errors.</p>
-    </div>
-    <div class="feature-card">
-      <h3 class="text-xl font-semibold mb-2">Dashboards</h3>
-      <p class="text-gray-600">Operational visibility, KPIs, weekly summaries.</p>
-    </div>
-  </div>
 
-  <!-- Contact Info -->
-  <p class="mt-12 text-gray-600">
-    Call: <a href="tel:+17167776345" class="underline">716-777-6345</a> • Email: <a href="mailto:Dean.Kunselman@gmail.com" class="underline">Dean.Kunselman@gmail.com</a>
-  </p>
-</section>
+    <!-- Badges / Highlights -->
+    <div class="flex flex-wrap justify-center gap-4 mb-16">
+      <span class="badge">Offline-First Architecture</span>
+      <span class="badge">GitHub Pages Ready</span>
+      <span class="badge">One-Click CSV Exports</span>
+      <span class="badge">Rapid Delivery • Precision Crafted</span>
+    </div>
+
+    <!-- Quick Feature Cards -->
+    <div class="grid md:grid-cols-3 gap-8 text-left">
+      <div class="feature-card">
+        <h3 class="text-2xl text-[var(--brass)] mb-4">Inventory Cataloging</h3>
+        <p class="text-[var(--aged-parchment)] opacity-90">Photo-centric, fully searchable databases built for collectors and dealers — export-ready and error-resistant.</p>
+      </div>
+      <div class="feature-card">
+        <h3 class="text-2xl text-[var(--brass)] mb-4">Automation & Pipelines</h3>
+        <p class="text-[var(--aged-parchment)] opacity-90">Transform repetitive multi-step processes into single-button operations — ideal for DevOps and inventory workflows alike.</p>
+      </div>
+      <div class="feature-card">
+        <h3 class="text-2xl text-[var(--brass)] mb-4">Operational Dashboards</h3>
+        <p class="text-[var(--aged-parchment)] opacity-90">Real-time KPIs, trend tracking, automated weekly summaries — visibility for teams and valuation insights for collectors.</p>
+      </div>
+    </div>
+
+    <!-- Contact Footer -->
+    <p class="mt-20 text-lg text-[var(--aged-parchment)] opacity-80">
+      Direct Line: <a href="tel:+17167776345" class="underline hover:text-[var(--brass)] transition-colors">716-777-6345</a>  
+       •  Email: <a href="mailto:Dean.Kunselman@gmail.com" class="underline hover:text-[var(--brass)] transition-colors">Dean.Kunselman@gmail.com</a>
+    </p>
+  </section>
+
+</body>
+</html>
