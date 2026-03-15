@@ -1,199 +1,232 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kunselman & Eisenhardt | DevOps Precision × Antiquarian Expertise</title>
-  <meta name="description" content="Dean handles DevOps, software automation & inventory tools. Andrew manages ground operations, curation & listings of fine antiques and collectibles."/>
-  
-  <script src="https://cdn.tailwindcss.com"></script>
-  
+  <title>Dean Kunselman | Elite Internet Developer & Software Architect</title>
+  <meta name="description" content="Dean Kunselman — Visionary builder of bulletproof systems. Automation pipelines, dynamic inventory platforms, blazing-fast exports. Precision is the baseline."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
   <style>
     :root {
-      --brass: #c9a96e;
-      --dark-brass: #a67c52;
-      --aged-parchment: #f0e0c0;
-      --charcoal: #1f1a16;
-      --deep-brown: #2c2118;
+      --crt-green: #00ff41;
+      --crt-green-dim: #00aa2f;
+      --bg-black: #000000;
+      --scanline: rgba(0, 255, 65, 0.08);
+      --glow: rgba(0, 255, 65, 0.4);
+      --flicker: 0.02s;
     }
-
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background-color: var(--charcoal);
-      color: var(--aged-parchment);
+    * {
+      box-sizing: border-box;
       margin: 0;
-      min-height: 100vh;
-      position: relative;
+      padding: 0;
     }
-
-    body::before {
+    body {
+      background: var(--bg-black);
+      color: var(--crt-green);
+      font-family: 'VT323', monospace;
+      font-size: 1.4rem;
+      line-height: 1.45;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      image-rendering: pixelated;
+    }
+    /* CRT / Terminal aesthetic base */
+    .crt-container {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      min-height: 100vh;
+    }
+    .crt-container::before,
+    .crt-container::after {
       content: "";
       position: fixed;
-      inset: 0;
-      background: linear-gradient(rgba(31,26,22,0.90), rgba(44,33,24,0.85)),
-                  url('https://thumbs.dreamstime.com/b/steampunk-world-map-globe-gears-light-bulbs-vintage-style-featuring-detailed-surrounded-illuminated-creating-399081511.jpg') center/cover no-repeat;
-      z-index: -2;
+      top: 0; left: 0; right: 0; bottom: 0;
       pointer-events: none;
+      z-index: 9999;
     }
-
-    main {
+    .crt-container::before {
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        var(--scanline) 1px,
+        transparent 3px,
+        transparent 4px
+      );
+      opacity: 0.6;
+      mix-blend-mode: overlay;
+    }
+    .crt-container::after {
+      background: radial-gradient(
+        circle at 50% 50%,
+        transparent 40%,
+        rgba(0,0,0,0.8) 100%
+      );
+      animation: vignette 8s infinite alternate ease-in-out;
+    }
+    @keyframes vignette {
+      0%,100% { opacity: 0.15; }
+      50%     { opacity: 0.35; }
+    }
+    /* Flicker & glow */
+    .glow-text {
+      text-shadow: 
+        0 0 4px var(--glow),
+        0 0 10px var(--glow),
+        0 0 20px var(--crt-green-dim);
+      animation: text-flicker 3s infinite steps(1);
+    }
+    @keyframes text-flicker {
+      0%,19%,21%,23%,25%,54%,56%,100% { opacity: 1; }
+      20%,24%,55% { opacity: 0.4; }
+    }
+    header {
+      text-align: center;
+      padding: 4rem 1rem 3rem;
+      border-bottom: 2px solid var(--crt-green-dim);
+    }
+    h1 {
+      font-size: 4.2rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      animation: glitch 4s infinite;
+    }
+    @keyframes glitch {
+      0%   { text-shadow: 2px 0 var(--crt-green-dim), -2px 0 #0f0; }
+      2%   { text-shadow: -2px 0 var(--crt-green-dim), 2px 0 #0f0; }
+      4%   { text-shadow: 0; }
+      100% { text-shadow: 0; }
+    }
+    .status-line {
+      font-size: 1.6rem;
+      margin: 1.5rem 0;
+      opacity: 0.85;
+    }
+    section {
+      margin: 3rem 0;
+      padding: 1.8rem;
+      border: 1px dashed var(--crt-green-dim);
+      background: rgba(0, 20, 10, 0.4);
+      backdrop-filter: blur(2px);
+    }
+    h2 {
+      font-size: 2.4rem;
+      margin-bottom: 1.2rem;
+      border-bottom: 1px solid var(--crt-green-dim);
+      padding-bottom: 0.6rem;
+      display: inline-block;
+    }
+    ul.expertise {
+      list-style: none;
+      padding-left: 1.5rem;
+    }
+    ul.expertise li {
+      margin: 0.8rem 0;
       position: relative;
-      z-index: 1;
-      min-height: 100vh;
-      padding: 3rem 1rem 4rem;
-      max-width: 1400px;
-      margin: 0 auto;
     }
-
-    .content-card {
-      background: rgba(44, 33, 24, 0.78);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid var(--dark-brass);
-      border-radius: 1.25rem;
-      padding: 3rem 2.5rem;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.65);
-      margin: 0 auto 3rem;
-      max-width: 1200px;
+    ul.expertise li::before {
+      content: ">";
+      position: absolute;
+      left: -1.5rem;
+      color: var(--crt-green);
     }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.25rem 2.5rem;
-      font-weight: 600;
-      font-size: 1.25rem;
-      border: 2px solid var(--brass);
-      border-radius: 0.75rem;
-      color: var(--brass);
-      background: rgba(201,169,110,0.12);
-      transition: all 0.3s ease;
-      box-shadow: 0 6px 20px rgba(201,169,110,0.35);
-      cursor: pointer;
-      min-width: 260px;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
+    .project {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      border-left: 4px solid var(--crt-green);
     }
-
-    .btn:hover {
-      background: var(--brass);
-      color: var(--charcoal);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(201,169,110,0.6);
+    .quote {
+      font-size: 1.8rem;
+      text-align: center;
+      margin: 4rem 0;
+      padding: 2rem;
+      border: 2px dashed var(--crt-green-dim);
+      background: rgba(0, 40, 20, 0.3);
     }
-
-    .btn:active {
-      transform: translateY(1px);
-      box-shadow: 0 3px 12px rgba(201,169,110,0.4);
+    .back-link {
+      display: inline-block;
+      margin: 2rem 0;
+      color: var(--crt-green);
+      text-decoration: none;
+      font-size: 1.5rem;
     }
-
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      text-shadow: 0 3px 10px rgba(0,0,0,0.7);
+    .back-link:hover {
+      text-decoration: underline;
+      text-shadow: 0 0 10px var(--crt-green);
     }
-
-    p, li {
-      line-height: 1.75;
-      font-size: 1.15rem;
-    }
-
-    .badge {
-      @apply px-6 py-3 rounded-full text-base font-medium bg-[rgba(201,169,110,0.18)] text-[var(--brass)] border border-[rgba(201,169,110,0.45)] backdrop-blur-sm;
-    }
-
-    .feature-card {
-      @apply p-8 rounded-xl border border-[var(--dark-brass)/0.6] bg-[rgba(44,33,24,0.7)] backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300;
-    }
-
-    /* Mobile fixes: disable fixed background to prevent crashes/freezing */
-    @media (max-width: 768px) {
-      body::before {
-        display: none;
-      }
-      body {
-        background: var(--charcoal); /* solid fallback */
-      }
-      .content-card {
-        padding: 2rem 1.5rem;
-        margin: 0 1rem 2rem;
-      }
-      .btn {
-        padding: 1rem 2rem;
-        font-size: 1.1rem;
-        min-width: 100%;
-      }
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--crt-green-dim);
+      font-size: 1.2rem;
+      border-top: 1px solid var(--crt-green-dim);
     }
   </style>
 </head>
 <body>
 
-  <main>
-    <div class="content-card text-center">
-      <h1 class="text-5xl md:text-7xl font-bold mb-8 text-[var(--brass)] tracking-tight drop-shadow-2xl">
-        Kunselman & Andrew
-      </h1>
+  <div class="crt-container">
+
+    <header>
+      <h1 class="glow-text">DEAN KUNSELMAN</h1>
+      <div class="status-line">[ STATUS: ONLINE ] [ SYS_UPTIME: 99.999% ] [ BATTLE_LOG: ACTIVE ]</div>
+      <p class="glow-text">Elite Internet Developer & Software Architect</p>
+      <p>Visionary builder of bulletproof systems that power real-world operations.</p>
+      <p>Automation that crushes manual labor. Dashboards that expose truth instantly. Platforms that scale under fire.</p>
+      <a href="/" class="back-link">[ ← RETURN TO MAINFRAME ]</a>
+    </header>
+
+    <section>
+      <h2 class="glow-text">CORE_EXPLOIT_VECTOR</h2>
+      <ul class="expertise">
+        <li>Architected CI/CD kill-chains, Cloudflare edge strikes, GitHub Pages fortress deployments, zero-downtime incursions, IaC discipline</li>
+        <li>Automation warfare: chaotic workflows reduced to single-keystroke executions — error rate approaching null</li>
+        <li>Data exfil mastery: structured CSV/JSON payloads, bulk processing pipelines, validation gauntlets, painless migration vectors</li>
+        <li>Performance obsession protocol: sub-second response times, minimal footprint, error-resilient architecture, uptime maintained under extreme conditions</li>
+        <li>Full-stack assault craft: HTML5/CSS3 (Tailwind sorcery), vanilla JS/TS dominance, dynamic JSON UIs, real-time validation fields, modular & maintainable code vaults</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="glow-text">MISSION_LOG // SIGNATURE_OPERATIONS</h2>
       
-      <p class="text-2xl md:text-3xl text-[var(--aged-parchment)] mb-8 font-medium">
-        DevOps Engineering × Ground-Level Antiquarian Mastery
-      </p>
-
-      <p class="text-xl md:text-2xl opacity-90 mb-12 max-w-4xl mx-auto leading-relaxed">
-        Dean builds robust, offline-first software tools, automation pipelines, and inventory systems. Andrew handles acquisition, authentication, expert photography, market strategy, and curated listings of antiques and collectibles. Together we deliver precision tools and high-value collections.
-      </p>
-
-      <!-- Prominent Navigation Buttons – FIXED LINKS -->
-      <div class="flex flex-col sm:flex-row justify-center items-center gap-8 mb-16 flex-wrap">
-        <a href="/dean.html" class="btn">
-          Dean’s Portfolio → DevOps & Software
-        </a>
-        <a href="/andrew.html" class="btn">
-          Andrew’s Portfolio → Curation & Listings
-        </a>
-        <a href="/listings.html" class="btn">
-          View All Curated Listings
-        </a>
+      <div class="project">
+        <h3>KUNSELMAN & EISENHARDT PLATFORM [FLAGHIP_OBJECTIVE — ACTIVE]</h3>
+        <p>Single-operator campaign: complete software theater constructed to command high-value antiques & collectibles domain.</p>
+        <p>Dynamic JSON catalog arrays • admin upload breach point • one-keystroke CSV/JSON export ordnance • responsive photo-dominant interface • client-side auth shield • GitHub Pages silent insertion</p>
+        <p>Outcome: manual entry casualties reduced >85%, listing prep cycle time eviscerated, real-time market awareness achieved.</p>
       </div>
 
-      <!-- Quick Highlights -->
-      <div class="flex flex-wrap justify-center gap-5 mb-16">
-        <span class="badge">Offline-First Tools</span>
-        <span class="badge">Dynamic JSON Listings</span>
-        <span class="badge">Expert Authentication</span>
-        <span class="badge">Professional Photography</span>
-        <span class="badge">Fast Exports</span>
+      <div class="project">
+        <h3>AUTOMATION_PIPELINES & WORKFLOW_WEAPONS</h3>
+        <p>Engineered kill-chains that collapse multi-hour repetitive assaults into single-button activation sequences.</p>
+        <p>Bulk photo assault processing • metadata enrichment payloads • valuation tracking sensors • export orchestration command center</p>
+        <p>Delivered production-grade resilience. Zero runtime dependencies. Clean battlefield.</p>
       </div>
 
-      <!-- Core Services -->
-      <div class="grid md:grid-cols-3 gap-8 text-left mt-12">
-        <div class="feature-card">
-          <h3 class="text-2xl text-[var(--brass)] mb-4">Advanced Inventory Software</h3>
-          <p class="opacity-90 text-lg">Photo-centric catalogs, search, bulk tools & clean exports — engineered by Dean for reliability and speed.</p>
-        </div>
-        <div class="feature-card">
-          <h3 class="text-2xl text-[var(--brass)] mb-4">Automation & Efficiency</h3>
-          <p class="opacity-90 text-lg">One-click workflows for listing prep, valuation updates, and admin tasks — bridging code and real-world operations.</p>
-        </div>
-        <div class="feature-card">
-          <h3 class="text-2xl text-[var(--brass)] mb-4">Curated, Market-Ready Listings</h3>
-          <p class="opacity-90 text-lg">Expertly photographed, described & positioned items — managed by Andrew with precision and market insight.</p>
-        </div>
+      <div class="project">
+        <h3>HIGH-PERFORMANCE DASHBOARDS & OPERATIONAL INTEL</h3>
+        <p>Deployed real-time KPI command displays and weekly summary intelligence generators.</p>
+        <p>Crystal visibility into inventory velocity vectors, valuation trend lines, operational efficiency metrics.</p>
+        <p>Raw data transmuted into actionable battlefield insight.</p>
       </div>
+    </section>
 
-      <!-- Contact -->
-      <p class="mt-16 text-xl opacity-90">
-        Reach out directly:  
-        <a href="tel:+17167776345" class="underline hover:text-[var(--brass)] transition-colors">716-777-6345</a>  
-             
-        <a href="mailto:Dean.Kunselman@gmail.com" class="underline hover:text-[var(--brass)] transition-colors">Dean.Kunselman@gmail.com</a>
-      </p>
+    <div class="quote glow-text">
+      "Precision is not a goal — it's the baseline.<br>
+      Systems don't just run. They dominate."
     </div>
-  </main>
+
+    <footer>
+      [ TRANSMISSION_END ] • Kunselman & Eisenhardt • 2026 • SYS_STATUS: VICTORIOUS
+    </footer>
+
+  </div>
 
 </body>
 </html>
