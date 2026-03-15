@@ -1,11 +1,32 @@
 [
   {
-    "title": "Vintage Brass Clock",
-    "model": "Howard Miller 1920",
-    "age": 104,
-    "guaranteed": true,
-    "description": "Working antique clock",
-    "image": "/images/clock.jpg",
-    "ebay": "https://www.ebay.com"
+    "id": 1,
+    "title": "Victorian Brass Telescope, ca. 1880",
+    "description": "Fine working example with original tripod mount. Excellent optics, minor patina consistent with age. Fully authenticated.",
+    "price": 1250,
+    "currency": "USD",
+    "category": "Scientific Instruments",
+    "era": "Victorian",
+    "condition": "Very Good",
+    "images": [
+      "/images/telescope-1.jpg",
+      "/images/telescope-2.jpg"
+    ],
+    "featuredImage": "/images/telescope-featured.jpg",
+    "dateListed": "2026-02-15"
+  },
+  {
+    "id": 2,
+    "title": "Art Deco Bakelite Radio, 1935",
+    "description": "Classic streamlined design in excellent cosmetic condition. Restored electronics for modern use if desired.",
+    "price": 875,
+    "currency": "USD",
+    "category": "Electronics",
+    "era": "Art Deco",
+    "condition": "Excellent",
+    "images": ["/images/radio-1.jpg"],
+    "featuredImage": "/images/radio-featured.jpg",
+    "dateListed": "2026-03-01"
   }
+  // Add more entries as needed
 ]
