@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Access • Kunselman & Andrew</title>
+  <meta name="robots" content="noindex, nofollow"/> <!-- Prevent search engines from indexing -->
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --brass: #c9a96e;
+      --dark-brass: #a67c52;
+      --copper: #b87333;
+      --aged-parchment: #f0e0c0;
+      --charcoal: #1f1a16;
+      --deep-brown: #2c2118;
+    }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--charcoal);
+      color: var(--aged-parchment);
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+    .hero-bg {
+      background: linear-gradient(rgba(31,26,22,0.92), rgba(44,33,24,0.88)),
+                  url('https://images.unsplash.com/photo-1617791160505-6f00504e3519?auto=format&fit=crop&q=80') center/cover no-repeat fixed;
+      background-blend-mode: multiply;
+    }
+    .card {
+      @apply p-10 rounded-2xl border border-[var(--dark-brass)] bg-[var(--deep-brown)/0.85] backdrop-blur-md shadow-2xl max-w-md w-full;
+    }
+    .btn-submit {
+      @apply w-full py-4 px-6 rounded-xl font-semibold text-lg tracking-wide transition-all duration-300 border-2 border-[var(--brass)] text-[var(--brass)] hover:bg-[var(--brass)] hover:text-[var(--charcoal)] shadow-[0_0_20px_rgba(201,169,110,0.5)];
+    }
+  </style>
+</head>
+<body class="min-h-screen hero-bg bg-fixed flex items-center justify-center">
+
+  <div class="card text-center">
+    <h1 class="text-4xl text-[var(--brass)] mb-8 tracking-wide">Admin Access</h1>
+    <p class="text-lg opacity-85 mb-10">Restricted area — enter credentials to continue</p>
+
+    <form id="loginForm" class="space-y-6">
+      <div>
+        <input 
+          type="password" 
+          id="password" 
+          placeholder="Enter passphrase" 
+          class="w-full px-5 py-4 rounded-lg bg-[rgba(44,33,24,0.7)] border border-[var(--dark-brass)] text-[var(--aged-parchment)] placeholder-[var(--aged-parchment)/0.6] focus:outline-none focus:border-[var(--brass)] focus:ring-2 focus:ring-[var(--brass)/0.4]"
+          required
+          autocomplete="off"
+        />
+      </div>
+
+      <button type="submit" class="btn-submit">
+        Authenticate
+      </button>
+    </form>
+
+    <p class="mt-8 text-sm opacity-70">
+      Contact Dean if access issues occur.
+    </p>
+  </div>
+
+  <script>
+    // CHANGE THIS to your desired password (keep it secret!)
+    const CORRECT_PASSWORD = "abc123";  // ← Replace with a strong, unique value
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const input = document.getElementById('password').value.trim();
+      
+      if (input === CORRECT_PASSWORD) {
+        // Successful → redirect to the actual admin dashboard/form
+        window.location.href = "/admin/index.html";  // or "/admin/add-item.html" etc.
+      } else {
+        alert("Access denied. Incorrect passphrase.");
+        document.getElementById('password').value = "";
+        document.getElementById('password').focus();
+      }
+    });
+
+    // Optional: immediate prompt on page load (more "old-school" feel)
+    // window.onload = () => {
+    //   const pass = prompt("Enter admin passphrase:");
+    //   if (pass !== CORRECT_PASSWORD) {
+    //     alert("Access denied.");
+    //     window.location.href = "/";  // redirect home
+    //   }
+    // };
+  </script>
+
+</body>
+</html>
