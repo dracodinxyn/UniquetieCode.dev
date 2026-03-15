@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Admin Access • Kunselman & Andrew</title>
-  <meta name="robots" content="noindex, nofollow"/> <!-- Prevent search engines from indexing -->
+  <meta name="robots" content="noindex, nofollow"/>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +15,6 @@
     :root {
       --brass: #c9a96e;
       --dark-brass: #a67c52;
-      --copper: #b87333;
       --aged-parchment: #f0e0c0;
       --charcoal: #1f1a16;
       --deep-brown: #2c2118;
@@ -46,14 +45,14 @@
 
   <div class="card text-center">
     <h1 class="text-4xl text-[var(--brass)] mb-8 tracking-wide">Admin Access</h1>
-    <p class="text-lg opacity-85 mb-10">Restricted area — enter credentials to continue</p>
+    <p class="text-lg opacity-85 mb-10">Restricted area — enter passphrase</p>
 
     <form id="loginForm" class="space-y-6">
       <div>
         <input 
           type="password" 
           id="password" 
-          placeholder="Enter passphrase" 
+          placeholder="Passphrase" 
           class="w-full px-5 py-4 rounded-lg bg-[rgba(44,33,24,0.7)] border border-[var(--dark-brass)] text-[var(--aged-parchment)] placeholder-[var(--aged-parchment)/0.6] focus:outline-none focus:border-[var(--brass)] focus:ring-2 focus:ring-[var(--brass)/0.4]"
           required
           autocomplete="off"
@@ -61,43 +60,35 @@
       </div>
 
       <button type="submit" class="btn-submit">
-        Authenticate
+        Enter
       </button>
     </form>
 
     <p class="mt-8 text-sm opacity-70">
-      Contact Dean if access issues occur.
+      Contact Dean if you cannot access
     </p>
   </div>
 
   <script>
-    // CHANGE THIS to your desired password (keep it secret!)
-    const CORRECT_PASSWORD = "abc123";  // ← Replace with a strong, unique value
+    // ────────────────────────────────────────────────
+    // CHANGE THIS BEFORE UPLOADING – use a strong passphrase
+    const CORRECT_PASSPHRASE = "woeBobRossIsBoss1777";
 
     document.getElementById('loginForm').addEventListener('submit', function(e) {
       e.preventDefault();
       
       const input = document.getElementById('password').value.trim();
       
-      if (input === CORRECT_PASSWORD) {
-        // Successful → redirect to the actual admin dashboard/form
-        window.location.href = "/admin/index.html";  // or "/admin/add-item.html" etc.
+      if (input === CORRECT_PASSPHRASE) {
+        localStorage.setItem('adminAccess', 'granted');
+        window.location.href = "/admin/index.html";
       } else {
-        alert("Access denied. Incorrect passphrase.");
+        alert("Incorrect passphrase.");
         document.getElementById('password').value = "";
         document.getElementById('password').focus();
       }
     });
-
-    // Optional: immediate prompt on page load (more "old-school" feel)
-    // window.onload = () => {
-    //   const pass = prompt("Enter admin passphrase:");
-    //   if (pass !== CORRECT_PASSWORD) {
-    //     alert("Access denied.");
-    //     window.location.href = "/";  // redirect home
-    //   }
-    // };
   </script>
 
 </body>
-</html>
+</html
