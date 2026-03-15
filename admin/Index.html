@@ -1,1 +1,40 @@
+<h1>Add Item</h1>
 
+<input id="title" placeholder="Product title"><br><br>
+
+<input id="model" placeholder="Make / Model"><br><br>
+
+<input id="age" placeholder="Age"><br><br>
+
+<label>
+<input type="checkbox" id="guaranteed">
+Age guaranteed
+</label><br><br>
+
+<textarea id="description" placeholder="Description"></textarea><br><br>
+
+<input id="image" placeholder="Image URL"><br><br>
+
+<input id="ebay" placeholder="eBay link"><br><br>
+
+<button onclick="submitItem()">Post Listing</button>
+
+<script>
+
+function submitItem(){
+
+ const item = {
+   title: document.getElementById("title").value,
+   model: document.getElementById("model").value,
+   age: document.getElementById("age").value,
+   guaranteed: document.getElementById("guaranteed").checked,
+   description: document.getElementById("description").value,
+   image: document.getElementById("image").value,
+   ebay: document.getElementById("ebay").value
+ }
+
+ console.log("Listing:", item)
+
+}
+
+</script>
