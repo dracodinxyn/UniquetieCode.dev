@@ -1,62 +1,92 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Andrew — Portfolio & Listings</title>
-  <meta name="description" content="Andrew’s curated listings and portfolio. Professional experience and items available for sale." />
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Andrew | Antiquarian & Curation Expert</title>
+  <meta name="description" content="Andrew – Expert in antique acquisition, authentication, photography, market strategy, and curated high-value collectibles listings."/>
+  
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
   <style>
-    body { @apply bg-gray-50 font-sans; }
-    .btn { @apply bg-black text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-gray-800 transition; }
-    .btn-ghost { @apply border border-black text-black px-6 py-3 rounded-lg font-semibold shadow hover:bg-black hover:text-white transition; }
-    .nav-link { @apply text-gray-900 font-semibold hover:text-gray-600 mx-4; }
-    .feature-card { @apply bg-white rounded-xl shadow-lg p-6 transition transform hover:-translate-y-1 hover:shadow-2xl; }
+    :root {
+      --copper: #b87333; --dark-brass: #a67c52; --aged-parchment: #f0e0c0;
+      --charcoal: #1f1a16; --deep-brown: #2c2118;
+    }
+    body { font-family: 'Inter', system-ui, sans-serif; background-color: var(--charcoal); color: var(--aged-parchment); }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
+    .section-bg {
+      background: linear-gradient(rgba(31,26,22,0.90), rgba(44,33,24,0.85)),
+                  url('https://images.unsplash.com/photo-1617791160505-6f00504e3519?auto=format&fit=crop&q=80') center/cover no-repeat fixed;
+      background-blend-mode: multiply;
+    }
+    .card { @apply p-8 rounded-xl border border-[var(--dark-brass)/0.6] bg-[var(--deep-brown)/0.75] backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-400; }
+    .btn-back { @apply inline-block px-8 py-4 rounded-lg font-semibold text-lg border-2 border-[var(--copper)] text-[var(--copper)] hover:bg-[var(--copper)] hover:text-[var(--charcoal)] shadow-[0_0_15px_rgba(184,115,51,0.4)]; }
   </style>
 </head>
-<body>
+<body class="min-h-screen section-bg bg-fixed">
 
-  <!-- Navigation -->
-  <nav class="bg-white shadow sticky top-0 z-50 p-4 flex justify-center">
-    <a href="/" class="nav-link">Home</a>
-    <a href="/dean" class="nav-link">Dean</a>
-    <a href="/listings" class="nav-link">Listings</a>
-  </nav>
+  <section class="max-w-5xl mx-auto py-16 px-6 md:px-10">
+    <div class="text-center mb-16">
+      <h1 class="text-5xl md:text-6xl font-bold text-[var(--copper)] mb-4">Andrew</h1>
+      <p class="text-2xl md:text-3xl opacity-90">Ground Operations & Curation Lead</p>
+      <p class="mt-6 text-xl max-w-3xl mx-auto opacity-85">
+        Specialist in field acquisition, item authentication, professional photography, valuation insight, and strategic listing creation for antiques and collectibles.
+      </p>
+    </div>
 
-  <!-- Intro -->
-  <main class="max-w-6xl mx-auto py-16 px-5 text-center">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">Andrew — Curator & Portfolio</h1>
-    <p class="text-lg md:text-xl text-gray-700 mb-10">
-      I specialize in cataloging, listing, and showcasing unique items. Explore my portfolio, learn about my skills, and browse items ready for sale.
-    </p>
+    <!-- Back + Contact -->
+    <div class="flex justify-between items-center mb-12 flex-wrap gap-6">
+      <a href="/" class="btn-back">← Back to Home</a>
+      <p class="text-lg opacity-85">
+        Contact: <a href="tel:+17167776345" class="underline hover:text-[var(--copper)]">716-777-6345</a> • 
+        <a href="mailto:Dean.Kunselman@gmail.com" class="underline hover:text-[var(--copper)]">Dean.Kunselman@gmail.com</a>
+      </p>
+    </div>
 
-    <a href="/listings" class="btn mb-10">View My Listings</a>
-
-    <!-- Skills / Expertise -->
-    <section class="grid md:grid-cols-3 gap-8 text-left mt-10">
-      <div class="feature-card">
-        <h3 class="text-xl font-semibold mb-2">Item Curation</h3>
-        <p class="text-gray-600">Careful selection, categorization, and presentation of collectible and valuable items.</p>
+    <!-- Skills -->
+    <div class="card mb-12">
+      <h2 class="text-3xl text-[var(--copper)] mb-6">Core Expertise</h2>
+      <div class="grid md:grid-cols-2 gap-6 text-lg">
+        <ul class="space-y-3">
+          <li>Antique & collectibles authentication</li>
+          <li>High-resolution product photography</li>
+          <li>Market trend analysis & pricing</li>
+          <li>Item provenance research</li>
+          <li>Condition assessment & grading</li>
+        </ul>
+        <ul class="space-y-3">
+          <li>Listing optimization for marketplaces</li>
+          <li>Negotiation & acquisition strategy</li>
+          <li>Collection cataloging & storytelling</li>
+          <li>Client / dealer consultation</li>
+          <li>Rare finds sourcing</li>
+        </ul>
       </div>
-      <div class="feature-card">
-        <h3 class="text-xl font-semibold mb-2">Portfolio Management</h3>
-        <p class="text-gray-600">Organizing listings, tracking items, and maintaining clear, professional documentation.</p>
-      </div>
-      <div class="feature-card">
-        <h3 class="text-xl font-semibold mb-2">Sales Strategy</h3>
-        <p class="text-gray-600">Ensuring items reach the right audience, with transparent info and quality presentation.</p>
-      </div>
-    </section>
-  </main>
+    </div>
 
-  <!-- Footer -->
-  <footer class="py-10 text-center text-gray-600">
-    <p>© <span id="year"></span> Uniquitys</p>
-  </footer>
+    <!-- Portfolio / Highlights -->
+    <div class="card">
+      <h2 class="text-3xl text-[var(--copper)] mb-6">Notable Work & Achievements</h2>
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-2xl mb-2">Curated Collections for Kunselman & Andrew</h3>
+          <p class="opacity-90">Sourced, authenticated, photographed, and positioned high-value antiques — feeding dynamic listings with expert detail and market positioning.</p>
+        </div>
+        <div>
+          <h3 class="text-2xl mb-2">Rare Item Acquisitions</h3>
+          <p class="opacity-90">Secured and documented unique pieces across multiple eras, achieving strong sales outcomes through precise descriptions and visuals.</p>
+        </div>
+        <!-- Add more; consider thumbnails linking to /listings/ -->
+        <p class="text-center mt-8">
+          <a href="/listings/" class="underline text-xl hover:text-[var(--copper)]">View Full Curated Listings →</a>
+        </p>
+      </div>
+    </div>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  </section>
 </body>
 </html>
