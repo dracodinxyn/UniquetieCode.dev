@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Andrew | Master Antiquarian & Curation Expert</title>
+  <meta name="description" content="Andrew — elite curator, authenticator, and photographer of fine antiques and collectibles. Sourcing rare pieces, delivering market-leading listings, and driving exceptional value through unmatched expertise and precision."/>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --copper: #b87333;
+      --dark-brass: #a67c52;
+      --aged-parchment: #f0e0c0;
+      --charcoal: #1f1a16;
+      --deep-brown: #2c2118;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--charcoal);
+      color: var(--aged-parchment);
+      margin: 0;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(rgba(31,26,22,0.90), rgba(44,33,24,0.85)),
+                  url('https://thumbs.dreamstime.com/b/steampunk-world-map-globe-gears-light-bulbs-vintage-style-featuring-detailed-surrounded-illuminated-creating-399081511.jpg') center/cover no-repeat;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      padding: 3rem 1rem 4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .content-card {
+      background: rgba(44, 33, 24, 0.78);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--dark-brass);
+      border-radius: 1.25rem;
+      padding: 3.5rem 3rem;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.65);
+      margin: 0 auto 3rem;
+      max-width: 1100px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem 2.5rem;
+      font-weight: 600;
+      font-size: 1.25rem;
+      border: 2px solid var(--copper);
+      border-radius: 0.75rem;
+      color: var(--copper);
+      background: rgba(184,115,51,0.12);
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(184,115,51,0.35);
+      cursor: pointer;
+      min-width: 260px;
+    }
+
+    .btn:hover {
+      background: var(--copper);
+      color: var(--charcoal);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(184,115,51,0.6);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 3px 12px rgba(184,115,51,0.4);
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      text-shadow: 0 3px 10px rgba(0,0,0,0.7);
+    }
+
+    p, li {
+      line-height: 1.75;
+      font-size: 1.15rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-item {
+      background: rgba(184,115,51,0.08);
+      border: 1px solid var(--dark-brass);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .skill-item:hover {
+      background: rgba(184,115,51,0.18);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(184,115,51,0.3);
+    }
+
+    @media (max-width: 768px) {
+      .content-card {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem 2rem;
+      }
+      .btn {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        min-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <div class="content-card">
+      <div class="text-center mb-16">
+        <h1 class="text-5xl md:text-6xl font-bold text-[var(--copper)] mb-6 tracking-tight drop-shadow-2xl">
+          Andrew
+        </h1>
+        <p class="text-3xl md:text-4xl opacity-90 mb-6">
+          Master Antiquarian, Curator & Acquisition Specialist
+        </p>
+        <p class="text-xl md:text-2xl opacity-85 max-w-4xl mx-auto leading-relaxed">
+          World-class expert in sourcing, authenticating, photographing, and positioning rare antiques and collectibles. Andrew uncovers hidden gems, verifies provenance with forensic precision, captures gallery-quality images, and crafts market-dominating listings that command top value — delivering exceptional results for discerning collectors and dealers.
+        </p>
+      </div>
+
+      <!-- Back & Contact -->
+      <div class="flex flex-col sm:flex-row justify-between items-center mb-16 gap-6">
+        <a href="/" class="btn">← Back to Home</a>
+        <p class="text-xl opacity-90 text-center sm:text-right">
+          Direct Line: <a href="tel:+17167776345" class="underline hover:text-[var(--copper)]">716-777-6345</a><br>
+          Email: <a href="mailto:Dean.Kunselman@gmail.com" class="underline hover:text-[var(--copper)]">Dean.Kunselman@gmail.com</a>
+        </p>
+      </div>
+
+      <!-- Expertise Section -->
+      <div class="mb-20">
+        <h2 class="text-4xl text-[var(--copper)] mb-10 text-center">Core Mastery & Field Expertise</h2>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <h3 class="text-2xl text-[var(--copper)] mb-3">Authentication & Provenance Research</h3>
+            <p>Forensic-level verification of authenticity, period accuracy, and historical context. Deep knowledge across eras, materials, makers’ marks, and restoration techniques — ensuring every piece stands up to expert scrutiny.</p>
+          </div>
+          <div class="skill-item">
+            <h3 class="text-2xl text-[var(--copper)] mb-3">High-End Professional Photography</h3>
+            <p>Gallery-quality imaging that reveals every detail — macro shots, lighting mastery, angle precision, and post-processing that elevates items to museum standards while remaining honest and true-to-life.</p>
+          </div>
+          <div class="skill-item">
+            <h3 class="text-2xl text-[var(--copper)] mb-3">Market Intelligence & Valuation Mastery</h3>
+            <p>Real-time understanding of auction trends, dealer networks, collector demand, and pricing psychology. Position items to achieve maximum value through strategic descriptions, timing, and platform optimization.</p>
+          </div>
+          <div class="skill-item">
+            <h3 class="text-2xl text-[var(--copper)] mb-3">Rare & Exceptional Sourcing</h3>
+            <p>Elite network and field presence that uncover hidden treasures, estate finds, private collections, and under-the-radar opportunities — consistently securing pieces others miss.</p>
+          </div>
+          <div class="skill-item">
+            <h3 class="text-2xl text-[var(--copper)] mb-3">Listing & Storytelling Craftsmanship</h3>
+            <p>Compelling, accurate, and persuasive narratives that connect emotionally with buyers while providing full transparency — turning objects into must-have stories that drive premium results.</p>
+          </div>
+          <div class="skill-item">
+            <h3 class="text-2xl text-[var(--copper)] mb-3">Collection Strategy & Consultation</h3>
+            <p>Advising collectors and dealers on acquisition direction, portfolio balance, market timing, and long-term value growth — blending passion with disciplined, data-informed strategy.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Portfolio / Achievements -->
+      <div>
+        <h2 class="text-4xl text-[var(--copper)] mb-10 text-center">Signature Achievements & Impact</h2>
+        <div class="space-y-12">
+          <div>
+            <h3 class="text-3xl text-[var(--copper)] mb-4">Kunselman & Andrew Platform (Flagship Collaboration)</h3>
+            <p class="text-lg opacity-90">
+              Lead curator and co-architect of the complete antiques ecosystem: sourcing, authenticating, photographing, and positioning every item in the catalog. Delivered hundreds of high-resolution, market-optimized listings that showcase exceptional quality and drive strong buyer interest — transforming raw acquisitions into revenue-generating assets with unmatched presentation.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-3xl text-[var(--copper)] mb-4">Rare & High-Value Acquisitions</h3>
+            <p class="text-lg opacity-90">
+              Secured and documented numerous standout pieces across scientific instruments, timepieces, decorative arts, and industrial-era artifacts — often outmaneuvering competition through deep relationships, sharp timing, and expert negotiation. Many items achieved record or near-record prices due to precise authentication and presentation.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-3xl text-[var(--copper)] mb-4">Photography & Visual Standards Elevation</h3>
+            <p class="text-lg opacity-90">
+              Established gallery-level imaging protocols that set the benchmark for online antique presentation — multi-angle detail shots, controlled lighting, scale references, and condition documentation that give buyers complete confidence and reduce returns/disputes.
+            </p>
+          </div>
+
+          <div class="text-center mt-16">
+            <p class="text-2xl opacity-90 italic">
+              "Every piece tells a story. Andrew makes sure the world hears it — clearly, beautifully, and profitably."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
