@@ -1,1 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Andrew — Portfolio & Listings</title>
+  <meta name="description" content="Andrew’s curated listings and portfolio. Professional experience and items available for sale." />
 
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { @apply bg-gray-50 font-sans; }
+    .btn { @apply bg-black text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-gray-800 transition; }
+    .btn-ghost { @apply border border-black text-black px-6 py-3 rounded-lg font-semibold shadow hover:bg-black hover:text-white transition; }
+    .nav-link { @apply text-gray-900 font-semibold hover:text-gray-600 mx-4; }
+    .feature-card { @apply bg-white rounded-xl shadow-lg p-6 transition transform hover:-translate-y-1 hover:shadow-2xl; }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="bg-white shadow sticky top-0 z-50 p-4 flex justify-center">
+    <a href="/" class="nav-link">Home</a>
+    <a href="/dean" class="nav-link">Dean</a>
+    <a href="/listings" class="nav-link">Listings</a>
+  </nav>
+
+  <!-- Intro -->
+  <main class="max-w-6xl mx-auto py-16 px-5 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Andrew — Curator & Portfolio</h1>
+    <p class="text-lg md:text-xl text-gray-700 mb-10">
+      I specialize in cataloging, listing, and showcasing unique items. Explore my portfolio, learn about my skills, and browse items ready for sale.
+    </p>
+
+    <a href="/listings" class="btn mb-10">View My Listings</a>
+
+    <!-- Skills / Expertise -->
+    <section class="grid md:grid-cols-3 gap-8 text-left mt-10">
+      <div class="feature-card">
+        <h3 class="text-xl font-semibold mb-2">Item Curation</h3>
+        <p class="text-gray-600">Careful selection, categorization, and presentation of collectible and valuable items.</p>
+      </div>
+      <div class="feature-card">
+        <h3 class="text-xl font-semibold mb-2">Portfolio Management</h3>
+        <p class="text-gray-600">Organizing listings, tracking items, and maintaining clear, professional documentation.</p>
+      </div>
+      <div class="feature-card">
+        <h3 class="text-xl font-semibold mb-2">Sales Strategy</h3>
+        <p class="text-gray-600">Ensuring items reach the right audience, with transparent info and quality presentation.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-10 text-center text-gray-600">
+    <p>© <span id="year"></span> Uniquitys</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
