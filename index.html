@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kunselman & Eisenhardt | DevOps Precision × Antiquarian Expertise</title>
-  <meta name="description" content="Dean handles DevOps, software automation & inventory tools. Andrew manages ground operations, curation & listings of fine antiques and collectibles."/>
+  <title>Kunselman & Andrew | DevOps Precision × Antiquarian Expertise</title>
+  <meta name="description" content="Dean Kunselman handles DevOps, software automation & inventory tools. Andrew manages ground operations, curation & listings of fine antiques and collectibles."/>
   
   <script src="https://cdn.tailwindcss.com"></script>
   
@@ -76,6 +76,8 @@
       box-shadow: 0 6px 20px rgba(201,169,110,0.35);
       cursor: pointer;
       min-width: 260px;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .btn:hover {
@@ -109,7 +111,14 @@
       @apply p-8 rounded-xl border border-[var(--dark-brass)/0.6] bg-[rgba(44,33,24,0.7)] backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300;
     }
 
+    /* Mobile fixes: disable fixed background to prevent crashes/freezing */
     @media (max-width: 768px) {
+      body::before {
+        display: none;
+      }
+      body {
+        background: var(--charcoal); /* solid fallback */
+      }
       .content-card {
         padding: 2rem 1.5rem;
         margin: 0 1rem 2rem;
