@@ -1,1 +1,11 @@
-
+[
+  {
+    "title": "Vintage Brass Clock",
+    "model": "Howard Miller 1920",
+    "age": 104,
+    "guaranteed": true,
+    "description": "Working antique clock",
+    "image": "/images/clock.jpg",
+    "ebay": "https://www.ebay.com"
+  }
+]
