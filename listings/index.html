@@ -1,1 +1,36 @@
+<h1>Andrew's Listings</h1>
 
+<div id="items"></div>
+
+<script>
+
+async function loadListings(){
+
+ const response = await fetch("/data/listings.json")
+ const items = await response.json()
+
+ const container = document.getElementById("items")
+
+ container.innerHTML = ""
+
+ items.forEach(item => {
+
+   const card = `
+   <div style="border:1px solid #ddd;padding:20px;margin:20px;width:260px">
+     <img src="${item.image}" width="220">
+     <h2>${item.title}</h2>
+     <p><b>${item.model}</b></p>
+     <p>Age: ${item.age}</p>
+     <p>${item.description}</p>
+     <a href="${item.ebay}" target="_blank">View on eBay</a>
+   </div>
+   `
+
+   container.innerHTML += card
+ })
+
+}
+
+loadListings()
+
+</script>
