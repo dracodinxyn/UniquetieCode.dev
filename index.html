@@ -1,118 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="modern">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kunselman & Eisenhardt</title>
-  <link rel="stylesheet" href="css/main.css">
+  <title>Your Name / Portfolio / Services</title>
+  
+  <!-- Recommended meta tags -->
+  <meta name="description" content="Freelance developer / designer – modern & retro web experiences">
+  
+  <!-- Favicon (add your own later) -->
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  
+  <!-- Google Fonts – needed for CRT mode -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  
+  <!-- Your unified stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
-  <div class="container">
+  <!-- Theme toggle button – place it where it makes sense for you -->
+  <button id="theme-toggle">Switch to CRT</button>
 
-    <!-- Header / Nav -->
-    <header class="header">
-      <div class="brand">
-        <div class="avatar">K&E</div>
-        <div>
-          <h1>Kunselman & Eisenhardt</h1>
-          <div class="sub">Precision × Expertise</div>
-        </div>
-      </div>
+  <div class="container">    <!-- modern mode container -->
 
-      <nav class="topnav">
-        <a href="dean.html" class="btn ghost">Dean</a>
-        <a href="andrew.html" class="btn ghost">Andrew</a>
-        <a href="listings.html" class="btn ghost">Listings</a>
-        <a href="services.html" class="btn ghost">Services</a>
-        <a href="audit.html" class="btn">Free Audit</a>
-      </nav>
-    </header>
+    <!-- CRT wrapper – only visible/effective in CRT mode -->
+    <div class="crt-container">
 
-    <!-- Hero -->
-    <section class="hero">
-      <div class="heroText">
-        <h2>Bulletproof Systems<br>Meet Expert Curation</h2>
-        <p class="sub" style="font-size:1.2rem; margin:1.2rem 0 2rem;">
-          Dean builds automation, inventory platforms and zero-downtime infrastructure.<br>
-          Andrew delivers authenticated high-value collectibles with professional presentation.
-        </p>
+      <header>
+        <h1>Your Name</h1>
+        <p class="status-line glow-text">Full-Stack Developer • Designer • 2026</p>
+      </header>
 
-        <div class="ctaRow">
-          <a href="dean.html" class="btn">Explore Dean’s Work</a>
-          <a href="listings.html" class="btn">View Curated Listings</a>
-          <a href="audit.html" class="btn ghost">Request Free Site Audit</a>
-        </div>
-      </div>
+      <main>
+        <section>
+          <h2>About</h2>
+          <p>
+            I build clean, fast, and sometimes delightfully retro web experiences.
+            Currently available for projects starting Q2 2026.
+          </p>
+        </section>
 
-      <div class="heroCard">
-        <h3>Quick Stats</h3>
-        <ul class="bullets">
-          <li>99.999% system uptime achieved</li>
-          <li>>85% reduction in manual listing time</li>
-          <li>Offline-first JSON catalog engine</li>
-          <li>One-keystroke CSV/JSON exports</li>
-          <li>Professional photo + metadata workflows</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Two-column features -->
-    <section class="section">
-      <div class="grid2">
-        <div class="card">
-          <h3>Dean Kunselman</h3>
-          <p class="sub">Software Architect & Automation Specialist</p>
+        <section>
+          <h2>Services</h2>
           <ul class="bullets">
-            <li>CI/CD pipelines & zero-downtime deployments</li>
-            <li>Bulk processing & data migration systems</li>
-            <li>Dynamic JSON catalogs & admin interfaces</li>
-            <li>Performance-first, minimal-footprint code</li>
+            <li>Landing pages & SaaS UIs</li>
+            <li>React / Next.js applications</li>
+            <li>Custom design systems</li>
+            <li>CRT-inspired micro-sites (yes, really)</li>
           </ul>
-          <div style="margin-top:1.5rem;">
-            <a href="dean.html" class="link">View full portfolio →</a>
-          </div>
-        </div>
+        </section>
 
+        <!-- Example card – looks different per theme -->
         <div class="card">
-          <h3>Andrew Eisenhardt</h3>
-          <p class="sub">Antiquarian & Curation Expert</p>
-          <ul class="bullets">
-            <li>High-value antiques authentication</li>
-            <li>Professional photography & descriptions</li>
-            <li>Market positioning & timing strategy</li>
-            <li>Curated listings for maximum value</li>
-          </ul>
-          <div style="margin-top:1.5rem;">
-            <a href="andrew.html" class="link">View expertise →</a>
-          </div>
+          <h3>Recent Project</h3>
+          <p>Interactive terminal portfolio – because why not?</p>
+          <a href="#" class="btn">View Case Study</a>
         </div>
-      </div>
-    </section>
 
-    <!-- Call to action banner -->
-    <div class="banner">
-      <div>
-        <h3>Need faster operations or better listings?</h3>
-        <p class="sub">Let’s talk — free audit available.</p>
-      </div>
-      <div class="ctaRow" style="margin:0;">
-        <a href="contact.html" class="btn">Get in Touch</a>
-        <a href="audit.html" class="btn ghost">Start Free Audit</a>
-      </div>
+        <!-- Your project inquiry form could go here -->
+        <!-- <form id="auditForm"> ... your form fields ... </form> -->
+        <!-- <pre id="auditOutput"></pre> -->
+        <!-- <button id="copyBtn">Copy Message</button> etc. -->
+
+      </main>
+
+      <footer>
+        <p>&copy; <span id="year"></span> Your Name</p>
+      </footer>
+
     </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <p>Kunselman & Eisenhardt © 2026</p>
-      <p class="miniContact">
-        <span>Dean.Kunselman@gmail.com</span>
-        <span class="dot">•</span>
-        <span>716-777-6345</span>
-      </p>
-    </footer>
-
   </div>
+
+  <!-- Theme toggle logic -->
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+
+    // Load saved theme or default to modern
+    let currentTheme = localStorage.getItem('theme') || 'modern';
+
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      toggle.textContent = theme === 'crt' ? 'Switch to Modern' : 'Switch to CRT';
+    }
+
+    // Apply on load
+    setTheme(currentTheme);
+
+    // Toggle handler
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        currentTheme = currentTheme === 'modern' ? 'crt' : 'modern';
+        setTheme(currentTheme);
+      });
+    }
+
+    // Optional: auto-update footer year
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
