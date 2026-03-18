@@ -1,137 +1,198 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="modern">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dean Kunselman – Software Architect & Automation Specialist</title>
-  <link rel="stylesheet" href="css/main.css">
+  <title>Dean Kunselman • Portfolio</title>
+  <meta name="description" content="Dean Kunselman – portfolio of web development skills, interactive demos, and creative coding projects.">
+  
+  <!-- Google Fonts for CRT -->
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <style>
+    /* Accessibility enhancements */
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+    /* Skip link */
+    #skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--accent);
+      color: #071018;
+      padding: 8px 16px;
+      z-index: 9999;
+      transition: top 0.3s;
+    }
+    #skip-link:focus {
+      top: 0;
+    }
+    /* Larger touch targets */
+    .btn, .nav-buttons a {
+      min-width: 44px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+      #typewriter { animation: none; }
+    }
+    .demo-output[aria-live="polite"] {
+      min-height: 5rem;
+    }
+  </style>
 </head>
+
 <body>
 
-  <div class="container">
+  <!-- Skip link for keyboard users -->
+  <a id="skip-link" href="#main-content">Skip to main content</a>
 
-    <!-- Header / Nav -->
-    <header class="header">
-      <div class="brand">
-        <div class="avatar">D</div>
-        <div>
-          <h1>Dean Kunselman</h1>
-          <div class="sub">Software Architect • Automation • DevOps</div>
-        </div>
-      </div>
+  <!-- Theme toggle – better accessible name -->
+  <button id="theme-toggle" aria-label="Toggle between modern and CRT theme">
+    Switch to CRT
+  </button>
 
-      <nav class="topnav">
+  <!-- Sticky Navigation -->
+  <nav class="topnav" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-buttons">
         <a href="index.html" class="btn ghost">Home</a>
+        <a href="dean.html" class="btn" aria-current="page">Portfolio</a>
         <a href="andrew.html" class="btn ghost">Andrew</a>
-        <a href="listings.html" class="btn ghost">Listings</a>
-        <a href="services.html" class="btn ghost">Services</a>
-        <a href="audit.html" class="btn">Free Audit</a>
-      </nav>
-    </header>
-
-    <!-- Hero -->
-    <section class="hero">
-      <div class="heroText">
-        <h2>Bulletproof Systems<br>Built to Last</h2>
-        <p class="sub" style="font-size:1.2rem; margin:1.2rem 0 2rem;">
-          I design and ship automation pipelines, inventory platforms, export engines and resilient infrastructure that reduce manual work to near zero and survive real pressure.
-        </p>
-
-        <div class="ctaRow">
-          <a href="audit.html" class="btn">Request Free Audit</a>
-          <a href="#projects" class="btn ghost">See Projects</a>
-        </div>
+        <a href="antiques.html" class="btn ghost">Curated Antiques</a>
       </div>
-
-      <div class="heroCard">
-        <h3>Core Capabilities</h3>
-        <ul class="bullets">
-          <li>CI/CD pipelines & zero-downtime deployments</li>
-          <li>Offline-first dynamic JSON catalogs</li>
-          <li>Bulk processing & one-keystroke exports (CSV/JSON)</li>
-          <li>Admin panels with client-side auth</li>
-          <li>Performance tuning under heavy load</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Projects section -->
-    <section class="section" id="projects">
-      <h2 style="text-align:center; margin-bottom:2rem;">Signature Projects</h2>
-
-      <div class="grid2">
-        <div class="card">
-          <h3>Kunselman & Eisenhardt Platform</h3>
-          <p class="sub">Flagship inventory & curation system – currently active</p>
-          <ul class="bullets">
-            <li>Dynamic JSON catalog with real-time updates</li>
-            <li>Admin upload + client-side validation</li>
-            <li>One-click CSV/JSON export engine</li>
-            <li>Responsive photo-heavy UI</li>
-            <li>GitHub Pages deployment (zero server cost)</li>
-          </ul>
-          <p style="margin-top:1rem;"><strong>Outcome:</strong> Manual entry time reduced >85%</p>
-        </div>
-
-        <div class="card">
-          <h3>Automation Pipelines & Workflow Engines</h3>
-          <p class="sub">Bulk processing & orchestration layers</p>
-          <ul class="bullets">
-            <li>Photo batch resize + metadata injection</li>
-            <li>Valuation tracking & trend sensors</li>
-            <li>Export orchestration dashboard</li>
-            <li>Zero external runtime dependencies</li>
-            <li>Error-resilient retry logic</li>
-          </ul>
-          <p style="margin-top:1rem;"><strong>Outcome:</strong> Multi-hour tasks collapsed to seconds</p>
-        </div>
-
-        <div class="card">
-          <h3>High-Performance Operational Dashboards</h3>
-          <p class="sub">Real-time KPI & weekly intelligence views</p>
-          <ul class="bullets">
-            <li>Inventory velocity & turnover metrics</li>
-            <li>Valuation trend visualization</li>
-            <li>Operational efficiency scoring</li>
-            <li>Weekly summary generation</li>
-          </ul>
-          <p style="margin-top:1rem;"><strong>Outcome:</strong> Raw data turned into instant battlefield insight</p>
-        </div>
-
-        <div class="card">
-          <h3>Infrastructure & Deployment Fortress</h3>
-          <p class="sub">Edge & static hosting discipline</p>
-          <ul class="bullets">
-            <li>Cloudflare edge caching & security rules</li>
-            <li>GitHub Pages silent deployments</li>
-            <li>IaC patterns & configuration as code</li>
-            <li>Sub-second global response targets</li>
-          </ul>
-          <p style="margin-top:1rem;"><strong>Outcome:</strong> 99.999% observed uptime</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA banner -->
-    <div class="banner">
-      <div>
-        <h3>Want systems that actually dominate?</h3>
-        <p class="sub">Let’s audit your current setup – free.</p>
-      </div>
-      <a href="audit.html" class="btn">Start Free Audit</a>
     </div>
+  </nav>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>Dean Kunselman © 2026</p>
-      <p class="miniContact">
-        <span>Dean.Kunselman@gmail.com</span>
-        <span class="dot">•</span>
-        <span>716-777-6345</span>
-      </p>
-    </footer>
+  <div class="container">
+    <div class="crt-container">
 
+      <main id="main-content">
+        <!-- Hero -->
+        <section class="hero">
+          <div class="heroText">
+            <h1>Dean Kunselman</h1>
+            <h2>Portfolio – March 2026</h2>
+            <p class="sub">Building fast, inclusive, and creative web experiences. Explore interactive demos and skill deep-dives below.</p>
+          </div>
+        </section>
+
+        <!-- Quick links (repeated for emphasis & accessibility) -->
+        <section aria-labelledby="quick-links-heading">
+          <h3 id="quick-links-heading">Quick Navigation</h3>
+          <div class="ctaRow" style="justify-content: center;">
+            <a href="index.html" class="btn ghost">← Home</a>
+            <a href="#demos" class="btn">View Demos</a>
+            <a href="andrew.html" class="btn ghost">Andrew's Page</a>
+          </div>
+        </section>
+
+        <!-- Skills overview -->
+        <section aria-labelledby="skills-heading">
+          <h2 id="skills-heading">Core Skills</h2>
+          <div class="grid2">
+            <div class="card">
+              <h3>Frontend & UX</h3>
+              <ul class="bullets">
+                <li>React / Next.js with SSR, SSG, ISR</li>
+                <li>Accessible, responsive interfaces (WCAG 2.2 AA)</li>
+                <li>GSAP animations & scroll effects</li>
+                <li>Tailwind + custom multi-theme systems</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Backend & Tools</h3>
+              <ul class="bullets">
+                <li>Firebase Auth, Firestore, Storage</li>
+                <li>Secure admin panels & real-time features</li>
+                <li>Type-safe APIs (Zod, tRPC patterns)</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Interactive Demos – accessible versions -->
+        <section id="demos" aria-labelledby="demos-heading">
+          <h2 id="demos-heading">Live Interactive Demos</h2>
+          <p class="muted">These mini-tools demonstrate real coding capabilities. All are keyboard operable and screen-reader friendly.</p>
+
+          <!-- Demo 1 -->
+          <div class="demo-container" role="region" aria-labelledby="demo1-heading">
+            <h3 id="demo1-heading">Project Quote Builder</h3>
+            <p>Enter details → see formatted message update live.</p>
+            <label for="projectName">Project name</label>
+            <input type="text" id="projectName" placeholder="e.g. SaaS Dashboard">
+            <label for="budget">Budget range</label>
+            <input type="text" id="budget" placeholder="e.g. $5k–$12k">
+            <button id="generateQuote" class="btn">Generate</button>
+            <pre id="quoteOutput" class="demo-output" aria-live="polite">Output will appear here…</pre>
+          </div>
+
+          <!-- Demo 2 -->
+          <div class="demo-container" role="region" aria-labelledby="demo2-heading">
+            <h3 id="demo2-heading">Accent Color Generator</h3>
+            <p>Random harmonious accent pairs for design inspiration.</p>
+            <button id="randomAccent" class="btn">Generate Pair</button>
+            <div id="colorSwatch" style="height:140px; margin:1rem 0; border-radius:12px; background:linear-gradient(135deg,var(--accent),var(--accent2));" aria-hidden="true"></div>
+            <p id="colorInfo" aria-live="polite">Click to generate a new palette…</p>
+          </div>
+
+          <!-- Demo 3 -->
+          <div class="demo-container" role="region" aria-labelledby="demo3-heading">
+            <h3 id="demo3-heading">Retro Typewriter Effect</h3>
+            <p>Animated typing – respects reduced motion preference.</p>
+            <div id="typewriter" aria-live="polite" style="font-size:1.4rem; min-height:100px;"></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>© <span id="year"></span> Dean Kunselman</p>
+      </footer>
+
+    </div>
   </div>
 
-</body>
-</html>
+  <!-- Scripts -->
+  <script>
+    // Theme toggle
+    const toggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    let currentTheme = localStorage.getItem('theme') || 'modern';
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      toggle.textContent = theme === 'crt' ? 'Switch to Modern' : 'Switch to CRT';
+    }
+    setTheme(currentTheme);
+    toggle.addEventListener('click', () => {
+      currentTheme = currentTheme === 'modern' ? 'crt' : 'modern';
+      setTheme(currentTheme);
+    });
+
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Demo 1
+    document.getElementById('generateQuote')?.addEventListener('click', () => {
+      const name = document.getElementById('projectName').value.trim() || 'Project';
+      const budget = document.getElementById('budget').value.trim() || 'TBD';
+      document.getElementById('quoteOutput').textContent = 
+        `Hi Dean,\nProject: ${name}\nBudget: ${budget}\nLooking forward to discussing!`;
+    });
+
+    // Demo 2
+    document.getElementById('randomAccent')?.addEventListener('click', () => {
+      const hues = [200, 140, 80, 40, 300];
+      const h = hues[Math.floor(Math.random()*hues.length)];
+      const grad = `linear-gradient(135deg, hsl(\( {h}, 90%, 60%), hsl( \){(h+60)%360}, 85%, 65%))
