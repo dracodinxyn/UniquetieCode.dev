@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact – Kunselman & Eisenhardt</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Header / Nav -->
+    <header class="header">
+      <div class="brand">
+        <div class="avatar">K&E</div>
+        <div>
+          <h1>Contact Us</h1>
+          <div class="sub">Let’s Discuss Your Project or Collection</div>
+        </div>
+      </div>
+
+      <nav class="topnav">
+        <a href="index.html" class="btn ghost">Home</a>
+        <a href="dean.html" class="btn ghost">Dean</a>
+        <a href="andrew.html" class="btn ghost">Andrew</a>
+        <a href="listings.html" class="btn ghost">Listings</a>
+        <a href="services.html" class="btn ghost">Services</a>
+        <a href="audit.html" class="btn ghost">Audit</a>
+      </nav>
+    </header>
+
+    <!-- Hero / Intro -->
+    <section class="hero">
+      <div class="heroText">
+        <h2>Get in Touch</h2>
+        <p class="sub" style="font-size:1.2rem; margin:1.2rem 0 2rem;">
+          Whether you need custom automation, site improvements, authentication help, listing strategy, or just want to explore working together – drop us a line.
+        </p>
+
+        <div class="ctaRow">
+          <a href="mailto:dean.kunselman@gmail.com" class="btn">Email Dean</a>
+          <a href="mailto:antiquesallentown716@gmail.com" class="btn">Email Andrew</a>
+        </div>
+      </div>
+
+      <div class="heroCard">
+        <h3>Quick Response Times</h3>
+        <ul class="bullets">
+          <li>Emails usually answered within 24 hours</li>
+          <li>Audit requests prioritized same/next day</li>
+          <li>Phone calls returned promptly during business hours</li>
+          <li>Confidential inquiries handled discreetly</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact form + info -->
+    <section class="section">
+      <div class="grid2">
+        <div class="card">
+          <h3>Send a Message</h3>
+          <form id="contactForm">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Full name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@domain.com" required>
+
+            <label for="subject">Subject / Topic</label>
+            <select id="subject" name="subject">
+              <option value="">Choose one...</option>
+              <option value="audit">Free Audit Request</option>
+              <option value="software">Custom Software / Automation</option>
+              <option value="curation">Antiques / Collectibles Curation</option>
+              <option value="listing">Listing or Inventory Help</option>
+              <option value="general">General Inquiry</option>
+              <option value="other">Something Else</option>
+            </select>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Tell us about your project, pain points, or what you're looking for..." required></textarea>
+
+            <div class="checks">
+              <label><input type="checkbox" name="agree" required> I agree to receive a reply via email.</label>
+            </div>
+
+            <button type="submit" class="btn" style="margin-top:1.5rem; width:100%;">Send Message</button>
+          </form>
+        </div>
+
+        <div>
+          <div class="card">
+            <h3>Direct Contact</h3>
+            <ul class="bullets" style="margin-bottom:1.5rem;">
+              <li><strong>Dean Kunselman</strong><br>
+                  <a href="mailto:dean.kunselman@gmail.com">dean.kunselman@gmail.com</a><br>
+                  716-777-6345
+              </li>
+              <li style="margin-top:1.2rem;"><strong>Andrew Eisenhardt</strong><br>
+                  <a href="mailto:antiquesallentown716@gmail.com">antiquesallentown716@gmail.com</a><br>
+                  716-342-0009
+              </li>
+            </ul>
+
+            <h3>Availability</h3>
+            <p class="sub" style="margin-top:0.8rem;">
+              Monday–Friday: 9 AM – 6 PM EST<br>
+              Weekends: Limited – email preferred
+            </p>
+          </div>
+
+          <div class="card" style="margin-top:1.5rem;">
+            <h3>Confidential Inquiries</h3>
+            <p class="sub">
+              High-value collections, private sourcing, or sensitive projects?<br>
+              Use email with “Confidential” in the subject – we treat all discussions with full discretion.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA banner -->
+    <div class="banner">
+      <div>
+        <h3>Let’s build something that dominates</h3>
+        <p class="sub">Or at least fix what’s slowing you down.</p>
+      </div>
+      <a href="mailto:dean.kunselman@gmail.com" class="btn">Email Dean Now</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Kunselman & Eisenhardt © 2026</p>
+      <p class="miniContact">
+        <span>dean.kunselman@gmail.com</span>
+        <span class="dot">•</span>
+        <span>716-777-6345</span>
+      </p>
+    </footer>
+
+  </div>
+
+  <!-- Simple form feedback (no backend yet) -->
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Message received! We’ll get back to you within 24 hours.');
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
