@@ -1,109 +1,182 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="modern">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Name / Portfolio / Services</title>
-  
-  <!-- Recommended meta tags -->
-  <meta name="description" content="Freelance developer / designer – modern & retro web experiences">
-  
-  <!-- Favicon (add your own later) -->
-  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-  
-  <!-- Google Fonts – needed for CRT mode -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-  
-  <!-- Your unified stylesheet -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uniquitys • Custom Websites – No Subscriptions</title>
+  <meta name="description" content="Fully custom websites built from scratch. Pay once, own everything. No templates, no monthly fees.">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
 
-  <!-- Theme toggle button – place it where it makes sense for you -->
-  <button id="theme-toggle">Switch to CRT</button>
-
-  <div class="container">    <!-- modern mode container -->
-
-    <!-- CRT wrapper – only visible/effective in CRT mode -->
-    <div class="crt-container">
-
-      <header>
-        <h1>Your Name</h1>
-        <p class="status-line glow-text">Full-Stack Developer • Designer • 2026</p>
-      </header>
-
-      <main>
-        <section>
-          <h2>About</h2>
-          <p>
-            I build clean, fast, and sometimes delightfully retro web experiences.
-            Currently available for projects starting Q2 2026.
-          </p>
-        </section>
-
-        <section>
-          <h2>Services</h2>
-          <ul class="bullets">
-            <li>Landing pages & SaaS UIs</li>
-            <li>React / Next.js applications</li>
-            <li>Custom design systems</li>
-            <li>CRT-inspired micro-sites (yes, really)</li>
-          </ul>
-        </section>
-
-        <!-- Example card – looks different per theme -->
-        <div class="card">
-          <h3>Recent Project</h3>
-          <p>Interactive terminal portfolio – because why not?</p>
-          <a href="#" class="btn">View Case Study</a>
+  <header>
+    <div class="container">
+      <nav aria-label="Main navigation">
+        <div class="logo">Uniquitys</div>
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#examples">Examples</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
         </div>
-
-        <!-- Your project inquiry form could go here -->
-        <!-- <form id="auditForm"> ... your form fields ... </form> -->
-        <!-- <pre id="auditOutput"></pre> -->
-        <!-- <button id="copyBtn">Copy Message</button> etc. -->
-
-      </main>
-
-      <footer>
-        <p>&copy; <span id="year"></span> Your Name</p>
-      </footer>
-
+      </nav>
     </div>
-  </div>
+  </header>
 
-  <!-- Theme toggle logic -->
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <h1>Custom Websites Without the Trap</h1>
+        <p class="lead">
+          No monthly fees. No templates. No lock-in.<br>
+          We build exactly what you need — you pay once, own it forever.
+        </p>
+        <div class="btn-group">
+          <a href="#contact" class="btn">Start Your Project</a>
+          <a href="#examples" class="btn btn-outline">See Real Examples</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <h2>Why Businesses Choose Uniquitys</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Truly Custom From Scratch</h3>
+            <p>No page builders, no "pick a template" nonsense. Every line of code, every design decision is made for your specific business and goals.</p>
+          </div>
+          <div class="card">
+            <h3>One-Time Price, Full Ownership</h3>
+            <p>Pay for the work once. You get the complete source code, design files, and hosting setup. No recurring "platform" fees ever again.</p>
+          </div>
+          <div class="card">
+            <h3>We Do the Heavy Lifting</h3>
+            <p>Design, development, responsive layout, basic SEO, domain/hosting setup, handover training — you focus on running your business.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="examples">
+      <div class="container">
+        <h2>Projects We've Built</h2>
+        <p>Each one started with a conversation, not a template. These are live sites delivered to real clients.</p>
+        <div class="grid">
+          <div class="card">
+            <img src="https://via.placeholder.com/800x500/111827/60a5fa?text=E-commerce+Store" alt="E-commerce storefront screenshot">
+            <h3>E-commerce Store</h3>
+            <p>Product catalog, custom cart, Stripe payments, admin dashboard for inventory.</p>
+            <a href="#" class="btn btn-outline">View Live Site</a>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/800x500/111827/60a5fa?text=Service+Business" alt="Professional services site screenshot">
+            <h3>Consulting Firm Site</h3>
+            <p>Lead capture forms, booking calendar, case studies, client testimonials.</p>
+            <a href="#" class="btn btn-outline">View Live Site</a>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/800x500/111827/60a5fa?text=Portfolio+Site" alt="Creative portfolio screenshot">
+            <h3>Creative Portfolio</h3>
+            <p>Interactive project gallery, animated transitions, blog integration, contact funnel.</p>
+            <a href="#" class="btn btn-outline">View Live Site</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <h2>Pricing – Clear & Upfront</h2>
+        <p>We quote based on scope and complexity. Here's a rough guide (final price after free consultation):</p>
+        <div class="grid">
+          <div class="card">
+            <h3>Starter Site</h3>
+            <p class="price">$2,500 – $4,500</p>
+            <ul class="bullets">
+              <li>5–12 pages</li>
+              <li>Contact & lead forms</li>
+              <li>Mobile responsive</li>
+              <li>Basic SEO setup</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Growth Site</h3>
+            <p class="price">$5,000 – $9,000</p>
+            <ul class="bullets">
+              <li>12–30 pages</li>
+              <li>E-commerce or payments</li>
+              <li>Custom features</li>
+              <li>Admin dashboard</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Advanced / App-Like</h3>
+            <p class="price">$10,000+</p>
+            <ul class="bullets">
+              <li>Complex logic / integrations</li>
+              <li>Membership / courses</li>
+              <li>API connections</li>
+              <li>Full custom design</li>
+            </ul>
+          </div>
+        </div>
+        <p style="text-align:center; margin-top:2rem;">
+          Exact quote after 15-min call. No surprises.
+        </p>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <div class="container">
+        <h2>What Clients Say</h2>
+        <div class="grid">
+          <div class="card">
+            <p>“Uniquitys delivered exactly what we asked for — fast, clean, and no hidden fees. Best decision we made.”</p>
+            <p class="muted">— Sarah K., Boutique Owner</p>
+          </div>
+          <div class="card">
+            <p>“The site looks premium and loads lightning fast. Worth every penny — no subscription regret.”</p>
+            <p class="muted">— Mike R., Consultant</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2>Let's Build Yours</h2>
+        <p>Fill out the quick form or email <a href="mailto:hello@uniquitys.com">hello@uniquitys.com</a>. We'll reply within 24 hours with a rough scope and price.</p>
+
+        <form id="contactForm">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your full name" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@yourbusiness.com" required>
+
+          <label for="project">Project Idea</label>
+          <textarea id="project" name="project" placeholder="What kind of site do you need? (e.g. e-commerce, portfolio, lead gen, membership, etc.)" rows="6" required></textarea>
+
+          <label for="budget">Rough Budget (optional)</label>
+          <input type="text" id="budget" name="budget" placeholder="$2k–$5k / $5k–$10k / $10k+">
+
+          <button type="submit" class="btn">Send Inquiry</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Uniquitys. All rights reserved.</p>
+    </div>
+  </footer>
+
   <script>
-    const toggle = document.getElementById('theme-toggle');
-    const html = document.documentElement;
-
-    // Load saved theme or default to modern
-    let currentTheme = localStorage.getItem('theme') || 'modern';
-
-    function setTheme(theme) {
-      html.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-      toggle.textContent = theme === 'crt' ? 'Switch to Modern' : 'Switch to CRT';
-    }
-
-    // Apply on load
-    setTheme(currentTheme);
-
-    // Toggle handler
-    if (toggle) {
-      toggle.addEventListener('click', () => {
-        currentTheme = currentTheme === 'modern' ? 'crt' : 'modern';
-        setTheme(currentTheme);
-      });
-    }
-
-    // Optional: auto-update footer year
-    const yearEl = document.getElementById("year");
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
