@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="modern">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dean Kunselman • Portfolio Hub</title>
+  <meta name="description" content="Dean Kunselman – portfolio showcasing modern web development, interactive experiences, backend solutions, creative coding, and more.">
+  
+  <!-- Google Fonts for CRT mode -->
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  
+  <!-- Your unified stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <style>
+    .topnav {
+      position: sticky;
+      top: 0;
+      background: var(--card);
+      border-bottom: 1px solid var(--line);
+      z-index: 1000;
+      padding: 1rem;
+      backdrop-filter: blur(8px);
+    }
+    .nav-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .nav-buttons .btn {
+      padding: 0.8rem 1.5rem;
+    }
+    .skill-card {
+      transition: all 0.2s ease;
+    }
+    .skill-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Theme toggle -->
+  <button id="theme-toggle">Switch to CRT</button>
+
+  <!-- Sticky Top Navigation -->
+  <nav class="topnav">
+    <div class="container">
+      <div class="nav-buttons">
+        <a href="index.html" class="btn ghost">Home</a>
+        <a href="deanportfo.html" class="btn">Portfolio</a>
+        <a href="andrew.html" class="btn ghost">Andrew</a>
+        <a href="antiques.html" class="btn ghost">Curated Antiques</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="crt-container">
+
+      <!-- Hero / Intro -->
+      <section class="hero">
+        <div class="heroText">
+          <h1>Dean Kunselman</h1>
+          <h2>Portfolio – March 2026</h2>
+          <p class="sub">A living collection of techniques, tools, and experiments I use to build fast, engaging, and maintainable digital products.</p>
+        </div>
+      </section>
+
+      <!-- Quick navigation row (repeated for emphasis) -->
+      <section style="text-align: center; margin: 2.5rem 0;">
+        <h3>Explore the Collection</h3>
+        <div class="ctaRow" style="justify-content: center; gap: 1.2rem;">
+          <a href="index.html" class="btn ghost">← Home</a>
+          <a href="#skills" class="btn">View Skill Showcases</a>
+          <a href="andrew.html" class="btn ghost">Andrew's Work</a>
+        </div>
+      </section>
+
+      <!-- Skill Showcase Branches -->
+      <section id="skills">
+        <h2>Skill-Specific Deep Dives</h2>
+        <p class="muted" style="margin-bottom: 2rem;">
+          Each card links to a focused page demonstrating one specific area of expertise — complete with live code, technical breakdown, trade-offs, and real-world application examples.
+        </p>
+
+        <div class="grid3">
+
+          <!-- These will become real pages later -->
+          <a href="skills/nextjs-ssr-ssg.html" class="card skill-card linkCard">
+            <h3>Next.js SSR / SSG / ISR Patterns</h3>
+            <p>When to use each rendering strategy, hybrid approaches, caching layers, revalidation tricks, and performance numbers from real projects.</p>
+            <div class="pill">Next.js • React Server Components • Data Fetching</div>
+          </a>
+
+          <a href="skills/firebase-realtime-admin.html" class="card skill-card linkCard">
+            <h3>Firebase Auth + Firestore + Admin Dashboards</h3>
+            <p>Secure multi-user auth flows, custom claims, Firestore rules, real-time listeners, file storage with signed URLs, and effortless admin UIs.</p>
+            <div class="pill">Firebase • Authentication • Security Rules</div>
+          </a>
+
+          <a href="skills/gsap-scroll-animations.html" class="card skill-card linkCard">
+            <h3>GSAP + ScrollTrigger Mastery</h3>
+            <p>Complex scroll-linked animations, pinning, scrubbing, timelines, pinning sections with parallax, and mobile performance tuning.</p>
+            <div class="pill">GSAP • ScrollTrigger • Animation</div>
+          </a>
+
+          <a href="skills/canvas-webgl-experiments.html" class="card skill-card linkCard">
+            <h3>Canvas & WebGL Creative Coding</h3>
+            <p>Particle systems, shaders, 3D interactions, CRT/glitch effects, procedural generation, and integrating with DOM/Three.js.</p>
+            <div class="pill">Canvas • WebGL • Three.js • Shaders</div>
+          </a>
+
+          <a href="skills/tailwind-custom-themes.html" class="card skill-card linkCard">
+            <h3>Advanced Tailwind + Multi-Theme Systems</h3>
+            <p>Dynamic theme switching (light/dark/CRT/custom brands), CSS variables, plugins, arbitrary values, and design-token workflows.</p>
+            <div class="pill">Tailwind CSS • Theming • Design Systems</div>
+          </a>
+
+          <a href="skills/type-safe-fullstack.html" class="card skill-card linkCard">
+            <h3>Type-Safe Full-Stack (tRPC / Zod / React Query)</h3>
+            <p>End-to-end type safety from DB → API → frontend, automatic query invalidation, optimistic updates, and error handling patterns.</p>
+            <div class="pill">TypeScript • tRPC • Zod • TanStack Query</div>
+          </a>
+
+        </div>
+      </section>
+
+      <footer class="footer" style="margin-top: 4rem;">
+        <p>© <span id="year"></span> Dean Kunselman • Building for the web since forever</p>
+        <p class="muted" style="margin-top: 0.5rem; font-size: 0.95rem;">
+          Last updated: March 18, 2026
+        </p>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Theme toggle
+    const toggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    let currentTheme = localStorage.getItem('theme') || 'modern';
+
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      toggle.textContent = theme === 'crt' ? 'Switch to Modern' : 'Switch to CRT';
+    }
+
+    setTheme(currentTheme);
+
+    toggle.addEventListener('click', () => {
+      currentTheme = currentTheme === 'modern' ? 'crt' : 'modern';
+      setTheme(currentTheme);
+    });
+
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
