@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniquitys • Custom Websites – No Subscriptions</title>
+    <meta name="description" content="Fully custom websites built from scratch. Pay once, own everything. No templates, no monthly fees.">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #333; background: #f8fafc; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        header { background: #111827; color: white; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; }
+        .logo { font-size: 1.75rem; font-weight: 700; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 2rem; font-weight: 500; }
+        .nav-links a:hover { color: #60a5fa; }
+        .hero { background: linear-gradient(#111827, #1f2937); color: white; text-align: center; padding: 8rem 0; }
+        .hero h1 { font-size: 3.2rem; margin-bottom: 1rem; }
+        .lead { font-size: 1.35rem; max-width: 700px; margin: 0 auto; }
+        .btn-group { display: flex; gap: 1rem; justify-content: center; margin-top: 2.5rem; flex-wrap: wrap; }
+        .btn { display: inline-block; padding: 0.85rem 2rem; border-radius: 9999px; font-weight: 600; text-decoration: none; transition: all 0.3s; }
+        .btn { background: #60a5fa; color: white; }
+        .btn-outline { border: 2px solid #60a5fa; color: #60a5fa; background: transparent; }
+        .btn:hover { background: #3b82f6; transform: translateY(-2px); }
+        .btn-outline:hover { background: #60a5fa; color: white; }
+        section { padding: 5rem 0; }
+        h2 { text-align: center; font-size: 2.5rem; margin-bottom: 1.5rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        .card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.3s; }
+        .card:hover { transform: translateY(-8px); }
+        .card img { width: 100%; height: 240px; object-fit: cover; }
+        .card h3, .card p { padding: 1.25rem 1.5rem 0; }
+        .card a { margin: 1rem 1.5rem 1.5rem; }
+        .price { font-size: 1.75rem; color: #60a5fa; font-weight: 700; }
+        ul.bullets { list-style: none; padding: 1rem 1.5rem; }
+        ul.bullets li { padding: 0.5rem 0 0.5rem 1.75rem; position: relative; }
+        ul.bullets li:before { content: "✓"; color: #60a5fa; position: absolute; left: 0; font-weight: bold; }
+        .muted { font-style: italic; color: #666; margin-top: 1rem; }
+        form { max-width: 620px; margin: 0 auto; background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        label { display: block; margin-top: 1.5rem; font-weight: 600; }
+        input, textarea { width: 100%; padding: 0.9rem; border: 1px solid #ddd; border-radius: 8px; margin-top: 0.5rem; font-size: 1rem; }
+        button { width: 100%; margin-top: 2rem; padding: 1.1rem; background: #60a5fa; color: white; border: none; border-radius: 9999px; font-size: 1.1rem; font-weight: 600; cursor: pointer; }
+        button:hover { background: #3b82f6; }
+        footer { background: #111827; color: white; text-align: center; padding: 2.5rem 0; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav aria-label="Main navigation">
+                <div class="logo">Uniquitys</div>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#examples">Examples</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <h1>Custom Websites Without the Trap</h1>
+                <p class="lead">No monthly fees. No templates. No lock-in.<br>We build exactly what you need — you pay once, own it forever.</p>
+                <div class="btn-group">
+                    <a href="#contact" class="btn">Start Your Project</a>
+                    <a href="#examples" class="btn btn-outline">See Real Examples</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <h2>Why Businesses Choose Uniquitys</h2>
+                <div class="grid">
+                    <div class="card"> <h3>Truly Custom From Scratch</h3> <p>No page builders, no "pick a template" nonsense. Every line of code, every design decision is made for your specific business and goals.</p> </div>
+                    <div class="card"> <h3>One-Time Price, Full Ownership</h3> <p>Pay for the work once. You get the complete source code, design files, and hosting setup. No recurring "platform" fees ever again.</p> </div>
+                    <div class="card"> <h3>We Do the Heavy Lifting</h3> <p>Design, development, responsive layout, basic SEO, domain/hosting setup, handover training — you focus on running your business.</p> </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="examples">
+            <div class="container">
+                <h2>Projects We've Built</h2>
+                <p style="text-align:center; max-width:700px; margin:0 auto 2rem;">Each one started with a conversation, not a template. These are live sites delivered to real clients.</p>
+                <div class="grid">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/800x500/111827/60a5fa?text=E-commerce+Store" alt="E-commerce storefront screenshot">
+                        <h3>E-commerce Store</h3>
+                        <p>Product catalog, custom cart, Stripe payments, admin dashboard for inventory.</p>
+                        <a href="#" class="btn btn-outline">View Live Site</a>
+                    </div>
+                    <div class="card">
+                        <img src="https://via.placeholder.com/800x500/111827/60a5fa?text=Service+Business" alt="Professional services site screenshot">
+                        <h3>Consulting Firm Site</h3>
+                        <p>Lead capture forms, booking calendar, case studies, client testimonials.</p>
+                        <a href="#" class="btn btn-outline">View Live Site</a>
+                    </div>
+                    <div class="card">
+                        <img src="https://via.placeholder.com/800x500/111827/60a5fa?text=Portfolio+Site" alt="Creative portfolio screenshot">
+                        <h3>Creative Portfolio</h3>
+                        <p>Interactive project gallery, animated transitions, blog integration, contact funnel.</p>
+                        <a href="#" class="btn btn-outline">View Live Site</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing">
+            <div class="container">
+                <h2>Pricing – Clear & Upfront</h2>
+                <p style="text-align:center; max-width:700px; margin:0 auto 2rem;">We quote based on scope and complexity. Here's a rough guide (final price after free consultation):</p>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Starter Site</h3>
+                        <p class="price">$2,500 – $4,500</p>
+                        <ul class="bullets">
+                            <li>5–12 pages</li>
+                            <li>Contact & lead forms</li>
+                            <li>Mobile responsive</li>
+                            <li>Basic SEO setup</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Growth Site</h3>
+                        <p class="price">$5,000 – $9,000</p>
+                        <ul class="bullets">
+                            <li>12–30 pages</li>
+                            <li>E-commerce or payments</li>
+                            <li>Custom features</li>
+                            <li>Admin dashboard</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Advanced / App-Like</h3>
+                        <p class="price">$10,000+</p>
+                        <ul class="bullets">
+                            <li>Complex logic / integrations</li>
+                            <li>Membership / courses</li>
+                            <li>API connections</li>
+                            <li>Full custom design</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="text-align:center; margin-top:2rem;">Exact quote after 15-min call. No surprises.</p>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>About Uniquitys</h2>
+                <p style="text-align:center; max-width:700px; margin:0 auto;">We're a small, passionate studio that builds truly custom websites from the ground up. No templates, no subscriptions, no lock-in — just clean code you fully own. Founded in 2024, we help small businesses look and perform like the big players without the recurring costs.</p>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <div class="container">
+                <h2>What Clients Say</h2>
+                <div class="grid">
+                    <div class="card">
+                        <p>“Uniquitys delivered exactly what we asked for — fast, clean, and no hidden fees. Best decision we made.”</p>
+                        <p class="muted">— Sarah K., Boutique Owner</p>
+                    </div>
+                    <div class="card">
+                        <p>“The site looks premium and loads lightning fast. Worth every penny — no subscription regret.”</p>
+                        <p class="muted">— Mike R., Consultant</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Let's Build Yours</h2>
+                <p style="text-align:center; max-width:700px; margin:0 auto 2rem;">Fill out the quick form or email <a href="mailto:hello@uniquitys.com">hello@uniquitys.com</a>. We'll reply within 24 hours with a rough scope and price.</p>
+                <form id="contactForm" action="contact.php" method="POST">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your full name" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@yourbusiness.com" required>
+                    <label for="project">Project Idea</label>
+                    <textarea id="project" name="project" placeholder="What kind of site do you need? (e.g. e-commerce, portfolio, lead gen, membership, etc.)" rows="6" required></textarea>
+                    <label for="budget">Rough Budget (optional)</label>
+                    <input type="text" id="budget" name="budget" placeholder="$2k–$5k / $5k–$10k / $10k+">
+                    <button type="submit" class="btn">Send Inquiry</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© <span id="year"></span> Uniquitys. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert("✅ Inquiry sent! We'll reply within 24 hours. Thank you!");
+            this.reset();
+        });
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
