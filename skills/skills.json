@@ -1,0 +1,16 @@
+{
+  "dean": [
+    {"name": "DevOps & CI/CD", "level": "Expert"},
+    {"name": "Offline-First Web Apps", "level": "Advanced"},
+    {"name": "JavaScript / TypeScript", "level": "Expert"},
+    {"name": "Tailwind CSS", "level": "Advanced"},
+    {"name": "Automation & Workflows", "level": "Expert"}
+  ],
+  "andrew": [
+    {"name": "Item Authentication", "level": "Expert"},
+    {"name": "Professional Photography", "level": "Expert"},
+    {"name": "Market Valuation", "level": "Advanced"},
+    {"name": "Provenance Research", "level": "Expert"},
+    {"name": "Listing Strategy", "level": "Advanced"}
+  ]
+}

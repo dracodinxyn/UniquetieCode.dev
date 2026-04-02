@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andrew • Curator & Vintage Specialist</title>
+  <meta name="description" content="Andrew sources and curates rare antiques, vintage pieces, and collectibles with authenticity and story.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+  <style>
+:root {
+  /* Colors */
+  --bg: #0a0e17;
+  --surface: #111827;
+  --text: #e2e8f0;
+  --text-dim: #94a3b8;
+  --border: #1e293b;
+  --accent: #60a5fa;
+  --accent-dim: #3b82f6;
+  --accent-glow: rgba(96, 165, 250, 0.35);
+  --success: #34d399;
+  --danger: #f87171;
+  /* Sizing & shape */
+  --radius: 12px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+  --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+  /* Motion */
+  --transition: all 0.22s ease;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+/* ==========================================================================
+   Reset & base
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img, picture, video, canvas, svg {
+  max-width: 100%;
+  display: block;
+}
+/* ==========================================================================
+   Layout & containers
+   ========================================================================== */
+.container {
+  width: min(100% - 3rem, 1280px);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(17, 24, 39, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 1.25rem;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: white;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-weight: 500;
+}
+.nav-links a {
+  opacity: 0.9;
+  transition: var(--transition);
+}
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  opacity: 1;
+  color: var(--accent);
+}
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.8rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  background: var(--accent);
+  color: #0f172a;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px var(--accent-glow);
+}
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+}
+.btn-outline:hover {
+  background: rgba(96,165,250,0.08);
+}
+/* ==========================================================================
+   Cards
+   ========================================================================== */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(96,165,250,0.12) inset;
+}
+/* ==========================================================================
+   Site Tree Dropdown
+   ========================================================================== */
+.dropdown[data-feature="sitemap-tree"] {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-toggle {
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: opacity 0.2s, color 0.2s;
+}
+.dropdown-toggle:hover,
+.dropdown-toggle:focus-visible {
+  opacity: 1;
+  color: var(--accent);
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 260px;
+  max-height: 75vh;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 1rem 0;
+  margin-top: 0.5rem;
+  z-index: 200;
+}
+.dropdown-menu[hidden] {
+  display: none;
+}
+.tree-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tree-nav li {
+  padding: 0.4rem 1.5rem;
+}
+.tree-nav a,
+.tree-nav span {
+  display: block;
+  padding: 0.45rem 0;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.tree-nav a:hover,
+.tree-nav a:focus {
+  background: rgba(96,165,250,0.1);
+  color: var(--accent);
+}
+.tree-nav .has-children > span {
+  font-weight: 600;
+  color: var(--text-dim);
+  cursor: default;
+}
+.tree-nav ul {
+  list-style: none;
+  margin: 0.4rem 0 0.4rem 1.6rem;
+  padding-left: 0.8rem;
+  border-left: 1px solid var(--border);
+}
+/* ==========================================================================
+   Typography helpers
+   ========================================================================== */
+h1, h2, h3, h4 {
+  line-height: 1.1;
+  margin-bottom: 0.8em;
+}
+h1 { font-size: clamp(2.8rem, 7vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 5vw, 3rem); }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.3rem; }
+/* ==========================================================================
+   Footer & misc
+   ========================================================================== */
+footer {
+  padding-block: 4rem 6rem;
+  text-align: center;
+  color: var(--text-dim);
+  border-top: 1px solid var(--border);
+}
+/* Focus outline */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+/* Mobile adjustments */
+@media (max-width: 640px) {
+  nav { flex-direction: column; gap: 1.2rem; }
+  .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+}
+</style>
+<body>
+
+  <header>
+    <div class="container">
+      <nav aria-label="Main navigation">
+        <div class="logo">Andrew</div>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="#collections">Collections</a>
+          <a href="#listings">Current Listings</a>
+          <a href="#blog-teaser">Blog</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <!-- Site tree dropdown injected by sitemap-tree.js -->
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Hey, I'm Andrew</h1>
+        <p class="lead">
+          I hunt down rare, storied antiques and vintage pieces.<br>
+          Each one has history, character, and a place worth owning.
+        </p>
+        <div class="btn-group">
+          <a href="#listings" class="btn">Browse Current Pieces</a>
+          <a href="#contact" class="btn btn-outline">Inquire</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="collections">
+      <div class="container">
+        <h2>Curated Categories</h2>
+        <p>Hand-selected items from different eras and styles — always authentic, often restored with care.</p>
+        <div class="grid">
+          <div class="card">
+            <h3>Mid-Century Modern</h3>
+            <p>Teak, walnut, Eames-era furniture and decor — clean lines, timeless appeal.</p>
+          </div>
+          <div class="card">
+            <h3>Victorian & Industrial</h3>
+            <p>Brass clocks, ironwork, early 20th-century lighting — rich patina and detail.</p>
+          </div>
+          <div class="card">
+            <h3>Art Deco & Vintage Lighting</h3>
+            <p>Geometric glass, chrome, Bakelite — bold statement pieces that glow.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="listings">
+      <div class="container">
+        <h2>Current Listings</h2>
+        <p>Available pieces — authenticated, priced fairly, ready to ship or pickup. Inquire for condition reports, additional photos, or shipping quotes.</p>
+        <div class="grid">
+          <div class="card">
+            <img src="https://via.placeholder.com/600x400/111827/60a5fa?text=Teak+Sideboard+1960s" alt="Teak sideboard from 1960s">
+            <h3>Teak Sideboard – Danish 1960s</h3>
+            <p>Original finish, six drawers, solid teak, excellent condition. 72" wide.</p>
+            <p class="price">$1,450</p>
+            <a href="mailto:andrew@uniquitys.com?subject=Teak+Sideboard+Inquiry" class="btn">Inquire</a>
+          </div>
+
+          <div class="card">
+            <img src="https://via.placeholder.com/600x400/111827/60a5fa?text=Victorian+Brass+Clock" alt="Victorian brass carriage clock">
+            <h3>Victorian Brass Carriage Clock – Late 1800s</h3>
+            <p>Working movement, etched glass panels, original key and case. Compact and elegant.</p>
+            <p class="price">$780</p>
+            <a href="mailto:andrew@uniquitys.com?subject=Victorian+Clock+Inquiry" class="btn">Inquire</a>
+          </div>
+
+          <div class="card">
+            <img src="https://via.placeholder.com/600x400/111827/60a5fa?text=Art+Deco+Lamp+1930s" alt="Art Deco chrome and glass lamp">
+            <h3>Art Deco Chrome & Glass Lamp – 1930s</h3>
+            <p>Original Bakelite base, etched shade, fully rewired and tested. 18" tall.</p>
+            <p class="price">$420</p>
+            <a href="mailto:andrew@uniquitys.com?subject=Art+Deco+Lamp+Inquiry" class="btn">Inquire</a>
+          </div>
+
+          <div class="card">
+            <img src="https://via.placeholder.com/600x400/111827/60a5fa?text=Industrial+Iron+Mirror" alt="Industrial forged iron wall mirror">
+            <h3>Industrial Iron Wall Mirror – Early 1900s</h3>
+            <p>Heavy forged frame, original beveled glass, perfect for loft or modern space. 36" x 48".</p>
+            <p class="price">$890</p>
+            <a href="mailto:andrew@uniquitys.com?subject=Industrial+Mirror+Inquiry" class="btn">Inquire</a>
+          </div>
+
+          <!-- More listings can be added here -->
+        </div>
+      </div>
+    </section>
+
+    <section id="blog-teaser">
+      <div class="container">
+        <h2>Blog – Coming Soon</h2>
+        <p>Stories, history, restoration tips, and behind-the-scenes from the world of antiques.</p>
+        <p>We're putting the finishing touches on the blog — check back soon for posts about sourcing, care, and the stories behind the pieces.</p>
+        <div class="btn-group">
+          <a href="#" class="btn btn-outline disabled">Blog (Coming Soon)</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2>About Andrew</h2>
+        <p>I've spent years traveling to auctions, estates, and private collections to find pieces with real soul — not mass-produced replicas.</p>
+        <p>Every item I offer is authenticated, carefully restored when needed, and priced fairly. Whether you're furnishing a home or building a serious collection, I help you find things that matter.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2>Interested in a Piece?</h2>
+        <p>Questions about availability, shipping, restoration, or custom sourcing? Reach out — I'll reply quickly with details or additional photos.</p>
+
+        <form id="contactForm">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+
+          <label for="message">What are you looking for?</label>
+          <textarea id="message" name="message" placeholder="Piece type, era, budget, or specific item you're hunting..." rows="5" required></textarea>
+
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Andrew. Sourced with care.</p>
+    </div>
+  </footer>
+
+  <script src="js/sitemap-tree.js" defer></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

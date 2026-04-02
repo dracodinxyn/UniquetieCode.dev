@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <style>
+:root {
+  /* Colors */
+  --bg: #0a0e17;
+  --surface: #111827;
+  --text: #e2e8f0;
+  --text-dim: #94a3b8;
+  --border: #1e293b;
+  --accent: #60a5fa;
+  --accent-dim: #3b82f6;
+  --accent-glow: rgba(96, 165, 250, 0.35);
+  --success: #34d399;
+  --danger: #f87171;
+  /* Sizing & shape */
+  --radius: 12px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+  --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+  /* Motion */
+  --transition: all 0.22s ease;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+/* ==========================================================================
+   Reset & base
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img, picture, video, canvas, svg {
+  max-width: 100%;
+  display: block;
+}
+/* ==========================================================================
+   Layout & containers
+   ========================================================================== */
+.container {
+  width: min(100% - 3rem, 1280px);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(17, 24, 39, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 1.25rem;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: white;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-weight: 500;
+}
+.nav-links a {
+  opacity: 0.9;
+  transition: var(--transition);
+}
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  opacity: 1;
+  color: var(--accent);
+}
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.8rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  background: var(--accent);
+  color: #0f172a;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px var(--accent-glow);
+}
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+}
+.btn-outline:hover {
+  background: rgba(96,165,250,0.08);
+}
+/* ==========================================================================
+   Cards
+   ========================================================================== */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(96,165,250,0.12) inset;
+}
+/* ==========================================================================
+   Site Tree Dropdown
+   ========================================================================== */
+.dropdown[data-feature="sitemap-tree"] {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-toggle {
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: opacity 0.2s, color 0.2s;
+}
+.dropdown-toggle:hover,
+.dropdown-toggle:focus-visible {
+  opacity: 1;
+  color: var(--accent);
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 260px;
+  max-height: 75vh;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 1rem 0;
+  margin-top: 0.5rem;
+  z-index: 200;
+}
+.dropdown-menu[hidden] {
+  display: none;
+}
+.tree-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tree-nav li {
+  padding: 0.4rem 1.5rem;
+}
+.tree-nav a,
+.tree-nav span {
+  display: block;
+  padding: 0.45rem 0;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.tree-nav a:hover,
+.tree-nav a:focus {
+  background: rgba(96,165,250,0.1);
+  color: var(--accent);
+}
+.tree-nav .has-children > span {
+  font-weight: 600;
+  color: var(--text-dim);
+  cursor: default;
+}
+.tree-nav ul {
+  list-style: none;
+  margin: 0.4rem 0 0.4rem 1.6rem;
+  padding-left: 0.8rem;
+  border-left: 1px solid var(--border);
+}
+/* ==========================================================================
+   Typography helpers
+   ========================================================================== */
+h1, h2, h3, h4 {
+  line-height: 1.1;
+  margin-bottom: 0.8em;
+}
+h1 { font-size: clamp(2.8rem, 7vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 5vw, 3rem); }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.3rem; }
+/* ==========================================================================
+   Footer & misc
+   ========================================================================== */
+footer {
+  padding-block: 4rem 6rem;
+  text-align: center;
+  color: var(--text-dim);
+  border-top: 1px solid var(--border);
+}
+/* Focus outline */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+/* Mobile adjustments */
+@media (max-width: 640px) {
+  nav { flex-direction: column; gap: 1.2rem; }
+  .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+}
+</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Curated Listings • Kunselman & Andrew</title>
+  <meta name="description" content="Expertly curated antiques, collectibles & rare finds — authenticated, photographed, and presented with precision."/>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --brass: #c9a96e;
+      --dark-brass: #a67c52;
+      --aged-parchment: #f0e0c0;
+      --charcoal: #1f1a16;
+      --deep-brown: #2c2118;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--charcoal);
+      color: var(--aged-parchment);
+      margin: 0;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(rgba(31,26,22,0.90), rgba(44,33,24,0.85)),
+                  url('https://thumbs.dreamstime.com/b/steampunk-world-map-globe-gears-light-bulbs-vintage-style-featuring-detailed-surrounded-illuminated-creating-399081511.jpg') center/cover no-repeat;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      padding: 3rem 1rem 4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .content-card {
+      background: rgba(44, 33, 24, 0.78);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--dark-brass);
+      border-radius: 1.25rem;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.65);
+      margin: 0 auto 3rem;
+      max-width: 1200px;
+    }
+
+    .card {
+      @apply rounded-xl overflow-hidden border border-[var(--dark-brass)/0.6] bg-[var(--deep-brown)/0.8] backdrop-blur-sm shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-[1.02];
+    }
+
+    .btn-detail {
+      @apply w-full py-3 px-6 rounded-lg font-medium border-2 border-[var(--brass)] text-[var(--brass)] hover:bg-[var(--brass)] hover:text-[var(--charcoal)] shadow-[0_0_15px_rgba(201,169,110,0.4)];
+    }
+
+    .modal {
+      @apply fixed inset-0 bg-black/80 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-300;
+    }
+
+    .modal.open {
+      @apply opacity-100 pointer-events-auto;
+    }
+
+    .modal-content {
+      @apply max-w-4xl w-[90%] max-h-[90vh] overflow-y-auto bg-[var(--deep-brown)] border-2 border-[var(--brass)] rounded-xl shadow-2xl p-6 md:p-10 relative;
+    }
+
+    .gallery-img {
+      @apply h-48 md:h-64 object-cover rounded-lg border border-[var(--dark-brass)] shadow-md cursor-pointer hover:opacity-90 transition;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      text-shadow: 0 3px 10px rgba(0,0,0,0.7);
+    }
+
+    @media (max-width: 768px) {
+      .content-card {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <div class="content-card">
+      <div class="text-center mb-16">
+        <h1 class="text-5xl md:text-6xl font-bold text-[var(--brass)] tracking-tight drop-shadow-2xl">
+          Curated Listings
+        </h1>
+        <p class="text-xl md:text-2xl opacity-90 mt-4">
+          Timeless antiques and collectibles — authenticated, photographed, and selected with care
+        </p>
+      </div>
+
+      <div id="listingsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Cards injected here -->
+      </div>
+
+      <div id="loading" class="text-center text-xl opacity-80 py-20 hidden">
+        Loading curated selections...
+      </div>
+
+      <div id="error" class="text-center text-xl text-red-400 py-20 hidden">
+        Unable to load listings right now. Please try again later.
+      </div>
+
+      <div id="empty" class="text-center text-xl opacity-80 py-20 hidden">
+        No items are currently listed. Check back soon!
+      </div>
+    </div>
+  </main>
+
+  <!-- Detail Modal -->
+  <div id="detailModal" class="modal">
+    <div class="modal-content relative">
+      <button id="closeModal" class="absolute top-4 right-6 text-4xl text-[var(--brass)] hover:text-white transition">×</button>
+      <div id="modalContent" class="space-y-6"></div>
+    </div>
+  </div>
+
+  <script>
+    const grid = document.getElementById('listingsGrid');
+    const loading = document.getElementById('loading');
+    const errorDiv = document.getElementById('error');
+    const emptyDiv = document.getElementById('empty');
+    const modal = document.getElementById('detailModal');
+    const closeModalBtn = document.getElementById('closeModal');
+    const modalContent = document.getElementById('modalContent');
+
+    async function loadListings() {
+      loading.classList.remove('hidden');
+      grid.innerHTML = '';
+      errorDiv.classList.add('hidden');
+      emptyDiv.classList.add('hidden');
+
+      try {
+        const res = await fetch('./data/listings.json'); // adjust path if needed (e.g. '../data/listings.json')
+        if (!res.ok) throw new Error('Fetch failed');
+
+        const data = await res.json();
+
+        if (!Array.isArray(data) || data.length === 0) {
+          emptyDiv.classList.remove('hidden');
+          return;
+        }
+
+        data.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'card cursor-pointer';
+          card.innerHTML = `
+            <img 
+              src="${item.featuredImage || 'https://via.placeholder.com/400x300?text=No+Image'}" 
+              alt="${item.title}" 
+              class="w-full h-64 object-cover"
+              loading="lazy"
+            >
+            <div class="p-6">
+              <h3 class="text-2xl text-[var(--brass)] mb-2 line-clamp-2">${item.title}</h3>
+              <p class="text-xl font-bold mb-3">\[ {Number(item.price).toLocaleString()}</p>
+              <div class="text-sm opacity-80 mb-4 space-y-1">
+                <p><strong>Category:</strong> ${item.category}</p>
+                <p><strong>Era:</strong> ${item.era || 'Unknown'}</p>
+                <p><strong>Condition:</strong> ${item.condition}</p>
+              </div>
+              <p class="text-sm opacity-90 line-clamp-3 mb-4">${item.description}</p>
+              <button class="btn-detail">View Details</button>
+            </div>
+          `;
+
+          card.querySelector('button').onclick = () => showDetail(item);
+          grid.appendChild(card);
+        });
+      } catch (err) {
+        console.error(err);
+        errorDiv.classList.remove('hidden');
+      } finally {
+        loading.classList.add('hidden');
+      }
+    }
+
+    function showDetail(item) {
+      let galleryHtml = '';
+      if (item.images && item.images.length > 1) {
+        galleryHtml = `
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
+            ${item.images.slice(1).map(src => `
+              <img src="${src}" alt="Additional view" class="gallery-img">
+            `).join('')}
+          </div>
+        `;
+      }
+
+      modalContent.innerHTML = `
+        <h2 class="text-4xl md:text-5xl text-[var(--brass)] mb-6">${item.title}</h2>
+        <p class="text-3xl font-bold mb-8"> \]{Number(item.price).toLocaleString()} USD</p>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-10">
+          <div>
+            <img 
+              src="${item.featuredImage || 'https://via.placeholder.com/600x400?text=No+Image'}" 
+              alt="${item.title}" 
+              class="w-full h-auto rounded-xl border border-[var(--dark-brass)] shadow-2xl"
+            >
+          </div
